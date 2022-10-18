@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Test;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return phpinfo();
 });
+
+//Route::get('/info', 'App\\Http\\Controllers\\Test@index');
+Route::get('/index', [Test::class, 'index'])->name("index");
+Route::post('/register', [Test::class, 'register'])->name("register");
+
