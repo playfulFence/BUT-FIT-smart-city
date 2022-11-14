@@ -20,31 +20,13 @@
             }
         </style>
     </head>
-    <h2>Registration</h2>
+    <h2>Login</h2>
     <body class="antialiased">
-    <form action="{{route('register')}}" method="POST" >
+    <form action="{{route('authentication.check')}}" method="POST" >
         @csrf
-        <p><label>
-                <input type="text" border="2" name="name" placeholder="Name">
-            </label></p>
         <p>
             <label>
-                <input type="text" name="lastname" placeholder="Lastname">
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="date" name="birthday" placeholder="Birthday">
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="text" name="birthNumber" placeholder="Birth number">
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="text" name="phone" placeholder="Phone number">
+                <input type="email" name="email" placeholder="Email">
             </label>
         </p>
         <p>
@@ -52,8 +34,7 @@
                 <input type="password" name="password" placeholder="Password">
             </label>
         </p>
-        <button type="submit">Register</button>
-
+        <button type="submit">Login</button>
 
     </form>
     </body>

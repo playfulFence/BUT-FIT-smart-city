@@ -1,45 +1,53 @@
 <?php
-
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
+use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
-    protected $guarded = [];
-    public $timestamps = false;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    public function admin(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(Admin::class,"admin_id","id");
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'lastname',
+        'email',
+        'phone_number',
+        'birthday',
+        'password'
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = Hash::make($password);
     }
-
-    public function technicalSpecialist(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(TechnicalSpecialist::class,"spec_id","id");
-    }
-
-    public function cityManager(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(CityManager::class,"manger_id","id");
-    }
-
-    public function ticket(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Ticket::class);
-    }
-
-    public function senderCommentTicket(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(CommentTicket::class,"sender_id","id");
-    }
-
-    public function senderCommentSR(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(CommentServReq::class,"sender_id","id");
-    }
-
 
 }

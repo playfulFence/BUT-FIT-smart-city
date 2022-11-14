@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('technical_specialists', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\User::class,"spec_id");
-            $table->foreign("spec_id","spec_fk")->on("users")->references("id");
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->index('user_id','admins_user_idx');
+            $table->foreign('user_id','admins_user_fk')->on('users')->references('id');
+
+            $table->timestamps();
         });
     }
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('technical_specialists');
+        Schema::dropIfExists('admins');
     }
 };

@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('problems', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->text("description");
+            $table->text("description")->nullable(true);
             $table->string("state");
-            $table->foreignIdFor(\App\Models\CityManager::class,"city_manager_id");
-            $table->foreign("city_manager_id","problems_manager_fk")->on("city_managers")->references("manager_id");
+            $table->unsignedBigInteger('manager_id');
+            $table->index('manager_id','problems_manager_idx');
+            $table->foreign('manager_id','problems_manager_fk')->on('managers')->references('id');
 
+            $table->timestamps();
         });
     }
 

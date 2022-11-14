@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('city_managers', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\User::class,"manager_id")->primary();
-            $table->foreign("manager_id","manager_user_fk")->on("users")->references("id");
-            $table->string("speciality");
+        Schema::create('repairs', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->index('user_id','repairs_user_idx');
+            $table->foreign('user_id','repairs_user_fk')->on('users')->references('id');
+
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('city_managers');
+        Schema::dropIfExists('repairs');
     }
 };

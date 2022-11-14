@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->unsignedBigInteger("image_id");
-            $table->foreignIdFor(\App\Models\Ticket::class,'ticket_id');
-            $table->foreign("ticket_id","images_ticket_fk")->on("tickets")->references("id");
-            $table->string("file_name");
+            $table->unsignedBigInteger('ticket_id');
+            $table->index('ticket_id','images_ticket_idx');
+            $table->foreign('ticket_id','images_ticket_fk')->on('tickets')->references('id');
             $table->primary(['image_id','ticket_id']);
-
+            $table->timestamps();
         });
     }
 

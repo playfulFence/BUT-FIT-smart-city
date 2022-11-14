@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class TicketComments extends Model
 {
     use HasFactory;
-    protected $table = 'tickets';
+    protected $table = 'ticket_comments';
     protected $guarded = [];
 }
