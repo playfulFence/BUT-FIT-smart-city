@@ -13,6 +13,7 @@ class CheckController extends BaseController
 
         $data = $request->validated();
 
+//        dd($data);
         $result = $this->service->check($data);
 
         if($result){

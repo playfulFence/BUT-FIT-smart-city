@@ -10,6 +10,6 @@ class Service
 {
     public function check($data): bool
     {
-        return Auth::attempt($data);
+        return Auth::attempt(['email'=> $data['email'],'password'=>$data['password']],$data['remember']);
     }
 }

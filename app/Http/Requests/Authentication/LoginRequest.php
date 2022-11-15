@@ -25,7 +25,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email:rfc|exists:App\Models\User,email',
-            'password' => 'required'
+            'password' => 'required',
+            'remember' => 'boolean'
         ];
     }
 }
