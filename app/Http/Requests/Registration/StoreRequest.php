@@ -24,12 +24,12 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'lastname'  => 'required',
+            'name' => 'required|string',
+            'lastname'  => 'required|string',
             'email' => 'required|email:rfc|unique:App\Models\User,email',
             'password' => 'required|confirmed',
-            'birthday'  => 'required|date',
-            'phone'  => 'required'
+            'birthday'  => 'nullable|date',
+            'phone'  => 'nullable|digits_between:0,15|unique:App\Models\User,phone'
         ];
     }
 }
