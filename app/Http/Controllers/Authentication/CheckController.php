@@ -20,7 +20,7 @@ class CheckController extends BaseController
         }
 
         return redirect(route('authentication.index'))->withErrors([
-            'email' => 'Failed to login',
+            'password' => 'Neplatné heslo',
         ]);
 
     }

@@ -13,6 +13,6 @@ class LogoutController extends Controller
             Auth::logout();
         }
 
-        return redirect(route('hello'));
+        return redirect(route('authentication.index'));
     }
 }
