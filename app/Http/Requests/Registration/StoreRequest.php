@@ -26,10 +26,10 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required',
             'lastname'  => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'birthday'  => 'required',
-            'phone_number'  => 'required'
+            'email' => 'required|email:rfc|unique:App\Models\User,email',
+            'password' => 'required|confirmed',
+            'birthday'  => 'required|date',
+            'phone'  => 'required'
         ];
     }
 }
