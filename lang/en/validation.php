@@ -156,6 +156,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' => [
+            'email' => 'Atribut musí být platná e-mailová adresa',
+            'required' => 'Atribut musí být platná e-mailová adresa',
+            'exists'=> 'Uživatel s touto e-mailovou adresou neexistuje',
+        ],
+        'password' => [
+            'required' => 'Atribut hesla nesmí být prázdný',
+        ],
     ],
 
     /*
