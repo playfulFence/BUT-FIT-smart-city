@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("remember_token")->nullable(true);
             $table->timestamp("birthday")->nullable(false);
             $table->string("lastname")->nullable(false);
-            $table->string("phone_number")->unique()->nullable(false);
+            $table->string("phone")->unique()->nullable(false);
             $table->timestamps();
 
         });
