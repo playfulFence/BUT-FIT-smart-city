@@ -1,18 +1,38 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.forms')
+@section('form_content')
+    <x-profile_elements>
+        <h1 class="text-8xl">Uživatelský účet</h1>
+        <div class="px-10 mt-20">
+            <x-profile_elements.header :user="$user"/>
+            <x-profile_elements.tabs>
+                <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Uživatel</x-profile_elements.tab>
+                <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
+                <x-profile_elements.tab href="#">Správce města</x-profile_elements.tab>
+                <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
+                <x-profile_elements.tab href="#">Změny profilu</x-profile_elements.tab>
+            </x-profile_elements.tabs>
 
-        <title>Register</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+            <x-profile_elements.action>
+                <x-profile_elements.action_list class="mr-5">
+                    <x-profile_elements.action_card href="#">
+                        <x-profile_elements.title_action_card>Hlásit problémy</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Pokud ve městě, vidíte problém dejte nám prosím o tom vědět</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+                    <x-profile_elements.action_card href="#">
+                        <x-profile_elements.title_action_card>Zobrazit vaše hlášení o problémech</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card><S></S>eznam již nahlášených problémů</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+                </x-profile_elements.action_list>
+                <x-profile_elements.action_list class="mr-2">
+                    <x-profile_elements.action_card href="#">
+                        <x-profile_elements.title_action_card>Zobrazit již vyřešené problémy</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Seznam již vyřešených problémů</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+                </x-profile_elements.action_list>
+            </x-profile_elements.action>
 
-        @vite('resources/css/app.css')
-    </head>
-    <h2>UsersProfile</h2>
-    <body class="bg-blue-700">
-    UsersProfile
-    </body>
-</html>
+
+        </div>
+    </x-profile_elements>
+@endsection
