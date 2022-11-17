@@ -44,3 +44,13 @@ Route::name('profile.')
     Route::get('/profile', 'IndexController')->name("index");
 });
 
+
+Route::name('user.tickets.')
+    ->namespace('App\Http\Controllers\Tickets\User')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('user/tickets', 'IndexController')->name("index");
+        Route::get('user/tickets/create', 'CreateController')->name("create");
+        Route::post('user/tickets', 'StoreController')->name("store");
+        Route::get('user/tickets/{ticket}', 'ShowController')->name("show");
+    });
