@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ticket_comments', function (Blueprint $table) {
-            $table->unsignedBigInteger('comment_id');
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('ticket_id');
-            $table->text('content');
+            $table->string('content',"10000");
 
             $table->index('user_id','ticket_comments_user_idx');
             $table->index('ticket_id','ticket_comments_ticket_idx');
@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('user_id','ticket_comments_user_fk')->on('users')->references('id');
             $table->foreign('ticket_id','ticket_comments_ticket_fk')->on('tickets')->references('id');
 
-            $table->primary(['comment_id', 'ticket_id']);
             $table->timestamps();
         });
     }

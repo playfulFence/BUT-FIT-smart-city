@@ -18,6 +18,9 @@ return new class extends Migration
             $table->dateTime("report_time");
             $table->dateTime("estimated_time");
 
+            $table->string("title","255");
+            $table->string("description","15000")->nullable(true);
+
             $table->unsignedBigInteger('problem_id');
             $table->unsignedBigInteger('repair_id');
 

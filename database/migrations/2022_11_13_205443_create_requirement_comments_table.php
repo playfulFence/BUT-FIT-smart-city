@@ -14,18 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('requirement_comments', function (Blueprint $table) {
-            $table->unsignedBigInteger('comment_id');
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('requirement_id');
-            $table->text('content');
+            $table->string('content',"10000");
 
             $table->index('user_id','requirement_comments_user_idx');
             $table->index('requirement_id','requirement_comments_requirement_idx');
 
             $table->foreign('user_id','requirement_comments_user_fk')->on('users')->references('id');
             $table->foreign('requirement_id','requirement_comments_requirement_fk')->on('requirements')->references('id');
-
-            $table->primary(['comment_id', 'requirement_id']);
 
             $table->timestamps();
         });

@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('ticket_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
-            $table->unsignedBigInteger('ticket_id');
-            $table->index('ticket_id','images_ticket_idx');
-            $table->foreign('ticket_id','images_ticket_fk')->on('tickets')->references('id');
+            $table->string('title','255');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('ticket_statuses');
     }
 };
