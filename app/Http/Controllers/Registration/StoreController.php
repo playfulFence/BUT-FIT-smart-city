@@ -13,13 +13,14 @@ class StoreController extends BaseController
 
         $user = $this->service->store($data);
 
-        if($user){
-            Auth::login($user);
-            return redirect()->intended(route('profile.index'));
+        if(!$user){
+            return redirect(route('registration.create'))->withErrors([
+                'formError' => 'Uživatele se nepodařilo uložit',
+            ]);
         }
 
-        return redirect(route('registration.create'))->withErrors([
-            'formError' => 'Error save user',
-        ]);
+        Auth::login($user);
+        return redirect()->intended(route('profile.index'));
+
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Profile;
+namespace App\Http\Controllers\Tickets\User;
 
 use App\Http\Controllers\Controller;
-use App\Services\Authentication\Service;
+use App\Services\Tickets\Service;
+
 
 class BaseController extends Controller
 {
