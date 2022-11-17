@@ -9,6 +9,6 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-200">
-@yield('form_content')
+@yield('content')
 </body>
 </html>
