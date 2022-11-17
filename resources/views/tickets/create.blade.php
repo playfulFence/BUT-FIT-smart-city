@@ -9,10 +9,10 @@
             <div class="grid gap-6 md:grid-cols-2">
                 <div>
                     <div class="mb-6">
-                        <x-form_elements.universal name="title" type="text">Nazev</x-form_elements.universal>
+                        <x-form_elements.universal name="title" type="text">Nazev*</x-form_elements.universal>
                     </div>
                     <div class="mb-6">
-                        <x-form_elements.universal name="address" type="text">Adresa</x-form_elements.universal>
+                        <x-form_elements.universal name="address" type="text">Adresa*</x-form_elements.universal>
                     </div>
 
                     <div class="mb-6">
@@ -34,7 +34,7 @@
 
                 </div>
 
-                <x-form_elements.textarea name="description">Popis</x-form_elements.textarea>
+                <x-form_elements.textarea name="description">Popis*</x-form_elements.textarea>
             </div>
 
             <div class="flex items-center justify-center">

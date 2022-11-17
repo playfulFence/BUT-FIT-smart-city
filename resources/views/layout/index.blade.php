@@ -8,7 +8,7 @@
     <title>Document</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-200 px sm:px-40">
 @yield('content')
 </body>
 </html>

@@ -22,7 +22,7 @@
                             tom vědět
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
-                    <x-profile_elements.action_card href="#">
+                    <x-profile_elements.action_card href="{{route('user.tickets.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit vaše hlášení o problémech
                         </x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>eznam již nahlášených problémů
