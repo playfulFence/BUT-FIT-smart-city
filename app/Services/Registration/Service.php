@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class Service
 {
 
-    public function store($data): User
+    public function store($data)
     {
-        return User::create($data);
+        $data['approved'] = false;
+
+        $user = User::create($data);
+
+        return $user;
     }
 }

@@ -50,4 +50,9 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($password);
     }
 
+
+    public function tickets(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
