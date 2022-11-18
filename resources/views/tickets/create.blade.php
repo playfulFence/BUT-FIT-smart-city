@@ -16,13 +16,14 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="image" class="m-1" Nahrajte obrázky>Nahrajte obrázky</label>
-                        <input type="file" name="image[]" multiple title="sdafsdf"
-                               class="  @error('image') border-2 border-red-500 @enderror file:border-0 file:border-r  w-full p-2.5 rounded-lg shadow-inner value:text-white bg-gray-100">
-                        @error('image')
+                        <label for="image" class="m-1" >Nahrajte obrázky</label>
+                        <input type="file"  id="image" name="image[]" multiple
+                                class=" @error('image.*') border-2 border-red-500 @enderror file:border-0 file:border-r  w-full p-2.5 rounded-lg shadow-inner value:text-white bg-gray-100">
+                        @error('image.*')
                         <div class="m-1 text-red-400 text-sm">{{$message}}</div>
                         @enderror
                     </div>
+
 
 
                     {{--                    <div class="mb-6">--}}
