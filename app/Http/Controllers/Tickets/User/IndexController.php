@@ -9,7 +9,6 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-
         $tickets = $this->service->index(Auth::user());
 
 //        dd($tickets);

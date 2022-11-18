@@ -15,13 +15,14 @@ class ShowController extends Controller
         if($ticket->user_id !== Auth::id()){
             return redirect(route('profile.index'));
         }
-        $images = $ticket->image;
+        $images = $ticket->image()->take(3)->get();
+
+
+        $comments = $ticket->ticketComment()->paginate(10);
 
         $status = TicketStatuses::find($ticket->ticket_status_id);
-//        $ticket = Ticket::find($id);
-//        dd($status);
-//        if($ticket->id)
-        return view('tickets.show',compact('ticket','status','images'));
+
+        return view('tickets.show',compact('ticket','status','images','comments'));
 
     }
 }
