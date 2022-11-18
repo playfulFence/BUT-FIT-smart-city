@@ -17,4 +17,9 @@ class Ticket extends Model
         return $this->hasMany(Images::class);
     }
 
+    public function ticketComment(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(TicketComments::class);
+    }
+
 }
