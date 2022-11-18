@@ -42,6 +42,9 @@ Route::name('profile.')
     ->middleware('auth')
     ->group(function () {
     Route::get('/profile', 'IndexController')->name("index");
+    Route::get('/profile/edit', 'EditController')->name("edit");
+    Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
+    Route::post('/profile', 'UpdateController')->name("update");
 });
 
 
@@ -50,7 +53,11 @@ Route::name('user.tickets.')
     ->middleware('auth')
     ->group(function () {
         Route::get('user/tickets', 'IndexController')->name("index");
+        Route::get('user/tickets/old', 'IndexOldController')->name("index.old");
         Route::get('user/tickets/create', 'CreateController')->name("create");
         Route::post('user/tickets', 'StoreController')->name("store");
+        Route::post('user/tickets/{ticket}', 'AddCommentController')->name("add.comment");
+        Route::get('user/tickets/image/{ticket}', 'ShowImagesController')->name("show.images");
+        Route::post('user/tickets/image/{ticket}', 'AddImageController')->name("add.images");
         Route::get('user/tickets/{ticket}', 'ShowController')->name("show");
     });
