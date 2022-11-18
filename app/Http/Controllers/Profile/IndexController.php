@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $user = Auth::user()->getOriginal();
+        $user = Auth::user();
 
         return view('profile',compact('user'));
     }
