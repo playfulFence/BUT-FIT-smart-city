@@ -1,16 +1,16 @@
 <div class="flex flex-row">
     <div class="border-2  border-black rounded-full w-56 h-56">
-        <img src="#" class="w-56 h-56 rounded-full">
+        <img src="{{asset($user->photo)}}" class="w-56 h-56 rounded-full">
     </div>
     <div class="ml-8 mt-6">
-        <div class="text-6xl">{{$user['name']." ".$user['lastname']}}</div>
+        <div class="text-6xl">{{$user->name." ".$user->lastname}}</div>
         <div class="grid gap-2 md:grid-cols-2 ml-10 mt-6 text-gray-500 text-xl">
-            <div>Email: {{$user['email']}}</div>
-            @if($user['phone'])
-                <div>Telefon: {{$user['phone']}}</div>
+            <div>Email: {{$user->email}}</div>
+            @if($user->phone)
+                <div>Telefon: {{$user->phone}}</div>
             @endif
-            @if($user['birthday'])
-                <div>Narozeni: {{explode(" ",$user['birthday'])[0]}}</div>
+            @if($user->birthday)
+                <div>Narozeni: {{date('d-m-Y', strtotime($user->birthday))}}</div>
             @endif
         </div>
     </div>

@@ -6,8 +6,12 @@
                 Profile
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('user.tickets.index')}}" class="text-black  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('user.tickets.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Hlášení o problémech
+            </a>
+            <label class="w-4 h-4 text-gray-500" >|</label>
+            <a href="{{route('user.tickets.index.old')}}" class="@if(isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+                Archiv problémů
             </a>
         </div>
         <h1 class="text-8xl mb-8 mt-4 ">Hlášení o problémech</h1>
@@ -30,7 +34,15 @@
 
         @endforeach
 
-        <x-paginator :tickets="$tickets" rout="{{route('user.tickets.index')}}"></x-paginator>
+
+        @php
+            $rout = route('user.tickets.index');
+            if(isset($old)){
+                $rout = route('user.tickets.index.old');
+            }
+        @endphp
+
+        <x-paginator  :tickets="$tickets" rout='{{$rout}}' ></x-paginator>
 
     </x-ticket_elements>
 @endsection

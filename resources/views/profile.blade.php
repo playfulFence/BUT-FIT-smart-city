@@ -10,7 +10,7 @@
                 <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
                 <x-profile_elements.tab href="#">Správce města</x-profile_elements.tab>
                 <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
-                <x-profile_elements.tab href="#">Změny profilu</x-profile_elements.tab>
+                <x-profile_elements.tab href="{{route('profile.edit')}}">Změny profilu</x-profile_elements.tab>
             </x-profile_elements.tabs>
 
 
@@ -30,7 +30,7 @@
                     </x-profile_elements.action_card>
                 </x-profile_elements.action_list>
                 <x-profile_elements.action_list class="mr-2">
-                    <x-profile_elements.action_card href="#">
+                    <x-profile_elements.action_card href="{{route('user.tickets.index.old')}}">
                         <x-profile_elements.title_action_card>Zobrazit již vyřešené problémy
                         </x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam již vyřešených problémů
