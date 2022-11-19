@@ -13,12 +13,14 @@ class CityManagerController extends Controller
     {
         $user_id = Auth::id();
 
-        $found_in_mangers_table = DB::select('select * from managers where user_id = '.$user_id);
+        $is_manager = DB::select('select * from managers where user_id = '.$user_id);
 
-        if ($found_in_mangers_table)
+        if ($is_manager)
         {
             $user = Auth::user();
-            return view('profile_citymanager',compact('user'));
+            $is_admin = DB::select('select * from admins where user_id = '.$user_id);
+            $is_tech = DB::select('select * from repairs where user_id = '.$user_id);
+            return view('profile_citymanager',compact(['user', 'is_admin', 'is_tech']));
         }
         // Shouldn't be reachable
         else return redirect(route('profile.index'));

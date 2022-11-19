@@ -23,28 +23,39 @@
 
 
             <x-profile_elements.action>
+
                 <x-profile_elements.action_list class="mr-5">
                     <x-profile_elements.action_card href="{{route('user.tickets.create')}}">
                         <x-profile_elements.title_action_card>Hlásit problémy</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Pokud ve městě vidíte problém - <br>dejte nám prosíme o
-                            tom vědět <br><br>
+                        <x-profile_elements.discription_action_card>Pokud ve městě vidíte problém - <br>dejte nám prosíme o tom vědět <br><br>
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
+
+                </x-profile_elements.action_list>
+
+
+                <x-profile_elements.action_list class="mr-5">
+
                     <x-profile_elements.action_card href="{{route('user.tickets.index')}}">
-                        <x-profile_elements.title_action_card>Zobrazit vaše hlášení o problémech
-                        </x-profile_elements.title_action_card>
+                        <x-profile_elements.title_action_card>Zobrazit vaše hlášení o problémech</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>Seznam již nahlášených problémů
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
+
                 </x-profile_elements.action_list>
-                <x-profile_elements.action_list class="mr-2">
+
+
+                <x-profile_elements.action_list class="mr-5">
+
                     <x-profile_elements.action_card href="{{route('user.tickets.index.old')}}">
                         <x-profile_elements.title_action_card>Zobrazit již vyřešené problémy
                         </x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam již vyřešených problémů
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
+
                 </x-profile_elements.action_list>
+
             </x-profile_elements.action>
 
 
