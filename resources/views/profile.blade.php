@@ -7,9 +7,17 @@
             <x-profile_elements.tabs>
                 <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Uživatel
                 </x-profile_elements.tab>
-                <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
-                <x-profile_elements.tab href="#">Správce města</x-profile_elements.tab>
-                <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
+                @if($is_admin)
+                    <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
+                @endif
+
+                @if($is_manager)
+                    <x-profile_elements.tab href="{{route('profile.cityman')}}">Správce města</x-profile_elements.tab>
+                @endif
+
+                @if($is_tech)
+                    <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
+                @endif
                 <x-profile_elements.tab href="{{route('profile.edit')}}">Změny profilu</x-profile_elements.tab>
             </x-profile_elements.tabs>
 
@@ -18,14 +26,14 @@
                 <x-profile_elements.action_list class="mr-5">
                     <x-profile_elements.action_card href="{{route('user.tickets.create')}}">
                         <x-profile_elements.title_action_card>Hlásit problémy</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Pokud ve městě, vidíte problém dejte nám prosím o
-                            tom vědět
+                        <x-profile_elements.discription_action_card>Pokud ve městě vidíte problém - <br>dejte nám prosíme o
+                            tom vědět <br><br>
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
                     <x-profile_elements.action_card href="{{route('user.tickets.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit vaše hlášení o problémech
                         </x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card><S></S>eznam již nahlášených problémů
+                        <x-profile_elements.discription_action_card><S></S>Seznam již nahlášených problémů
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
                 </x-profile_elements.action_list>

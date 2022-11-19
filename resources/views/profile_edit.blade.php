@@ -7,7 +7,7 @@
             <x-profile_elements.tabs>
                 <x-profile_elements.tab href="{{route('profile.index')}}">Uživatel</x-profile_elements.tab>
                 <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
-                <x-profile_elements.tab href="#">Správce města</x-profile_elements.tab>
+                <x-profile_elements.tab href="{{route('profile.cityman')}}">Správce města</x-profile_elements.tab>
                 <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
                 <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Změny profilu
                 </x-profile_elements.tab>

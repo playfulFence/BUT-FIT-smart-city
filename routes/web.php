@@ -43,6 +43,7 @@ Route::name('profile.')
     ->group(function () {
     Route::get('/profile', 'IndexController')->name("index");
     Route::get('/profile/edit', 'EditController')->name("edit");
+    Route::get('profile/citymanager', 'CityManagerController')->name("cityman");
     Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
     Route::post('/profile', 'UpdateController')->name("update");
 });
