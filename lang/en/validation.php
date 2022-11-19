@@ -164,6 +164,9 @@ return [
         'password' => [
             'required' => 'Atribut hesla nesmí být prázdný',
         ],
+        'birthday' => [
+            'date_format' => 'Nesprávný formát pro zadání data, použijte prosím: dd-mm-YY'
+        ],
     ],
 
     /*

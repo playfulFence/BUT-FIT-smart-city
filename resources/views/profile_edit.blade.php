@@ -31,7 +31,7 @@
                     <x-form_elements.email input="{{$user->email}}" ></x-form_elements.email>
 
                     <x-form_elements.universal input="{{$user->phone}}" name="phone" placeholder="787897543">Telefon</x-form_elements.universal>
-                    <x-form_elements.universal input="{{$user->birthday}}" type="date" name="birthday">Birthday</x-form_elements.universal>
+                    <x-form_elements.universal input="{{$user->birthday}}" type="date"  name="birthday">Birthday</x-form_elements.universal>
 
                     <div>
                         <label for="image" class="m-1" >Nahrajte obrázky</label>

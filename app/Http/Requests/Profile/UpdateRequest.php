@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'name' => 'nullable|max:255|string',
             'lastname'  => 'nullable|max:255|string',
             'email' => 'nullable|max:255|email:rfc|unique:App\Models\User,email',
-            'birthday'  => 'nullable|date',
+            'birthday'  => 'nullable|date|date_format:Y-m-d',
             'phone'  => 'nullable|digits_between:0,15|unique:App\Models\User,phone',
             'image'  => 'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg|max:20000',
         ];

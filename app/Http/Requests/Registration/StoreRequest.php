@@ -28,7 +28,7 @@ class StoreRequest extends FormRequest
             'lastname'  => 'required|max:255|string',
             'email' => 'required|max:255|email:rfc|unique:App\Models\User,email',
             'password' => 'required|max:255|confirmed',
-            'birthday'  => 'nullable|date',
+            'birthday'  => 'nullable|date|date_format:Y-m-d',
             'phone'  => 'nullable|digits_between:0,15|unique:App\Models\User,phone'
         ];
     }
