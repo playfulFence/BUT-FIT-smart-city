@@ -10,9 +10,7 @@
                 @if($is_admin)
                 <x-profile_elements.tab href="#">Administrátor</x-profile_elements.tab>
                 @endif
-
                 <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Správce města</x-profile_elements.tab>
-
                 @if($is_tech)
                     <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
                 @endif
