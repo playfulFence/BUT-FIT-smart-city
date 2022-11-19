@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->unique();
             $table->index('user_id','repairs_user_idx');
             $table->foreign('user_id','repairs_user_fk')->on('users')->references('id');
-
+            $table->boolean("approved")->default(false);
             $table->timestamps();
         });
     }

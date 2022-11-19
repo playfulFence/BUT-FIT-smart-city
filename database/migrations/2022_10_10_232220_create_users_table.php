@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("email","255")->unique("email");
             $table->string("password","255");
             $table->string("remember_token")->nullable(true);
-            $table->timestamp("birthday")->nullable(true);
+            $table->date("birthday")->nullable(true);
             $table->string("phone","15")->unique()->nullable(true);
             $table->string('photo')->nullable(true);
             $table->boolean("approved")->default(false);
