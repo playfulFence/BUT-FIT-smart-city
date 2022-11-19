@@ -48,6 +48,16 @@ Route::name('profile.')
     Route::post('/profile', 'UpdateController')->name("update");
 });
 
+Route::name('join.')
+    ->namespace('App\Http\Controllers\Join')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/profile/join', 'CreateController')->name("create");
+        Route::post('/profile/join', 'StoreController')->name("store");
+    });
+
+
+
 
 Route::name('user.tickets.')
     ->namespace('App\Http\Controllers\Tickets\User')

@@ -56,6 +56,17 @@
 
                 </x-profile_elements.action_list>
 
+                <x-profile_elements.action_list class="mr-5">
+
+                    <x-profile_elements.action_card href="{{route('join.create')}}">
+                        <x-profile_elements.title_action_card>Přihláška do našeho týmu
+                        </x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Přidejte se k našemu týmu, můžete pomoci zlepšit město
+                        </x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+
+                </x-profile_elements.action_list>
+
             </x-profile_elements.action>
 
 
