@@ -15,10 +15,14 @@
             </a>
         </div>
         <h1 class="text-8xl mb-8 mt-4 ">Hlášení o problémech</h1>
+
+        <br>
+        <br>
+        <br>
         @foreach($tickets as $ticket)
 {{--            @dd($tickets)--}}
 {{--            @dump($ticket)--}}
-            <div class=" my-3 mx-5 min-w-3/4 p-6 bg-white border border-black rounded-lg @if($ticket->ticket_status_id == 1) bg-red-100 @elseif($ticket->ticket_status_id == 2) bg-yellow-100 @else bg-green-100  @endif">
+            <div class=" my-3 mx-5 min-w-3/4  p-6 bg-white border border-black rounded-lg @if($ticket->ticket_status_id == 1) bg-red-100 @elseif($ticket->ticket_status_id == 2) bg-yellow-100 @else bg-green-100  @endif">
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label class="w-fit break-all text-3xl mr-2">Nazev:  {{$ticket->title}}</label>

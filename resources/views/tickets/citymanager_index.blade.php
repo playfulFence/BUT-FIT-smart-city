@@ -6,11 +6,16 @@
                 Citymanager Page
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('user.tickets.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('citymanager.new_tickets_list')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Nově podáné
             </a>
         </div>
         <h1 class="text-8xl mb-8 mt-4 ">Hlášení o problémech</h1>
+
+        <br>
+        <br>
+        <br>
+
         @foreach($tickets as $ticket)
             {{--            @dd($tickets)--}}
             {{--            @dump($ticket)--}}

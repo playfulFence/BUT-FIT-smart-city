@@ -26,7 +26,7 @@
 
                 <x-profile_elements.action_list class="mr-5">
                     <x-profile_elements.action_card href="{{route('user.tickets.create')}}">
-                        <x-profile_elements.title_action_card>Nahlásit problém</x-profile_elements.title_action_card>
+                        <x-profile_elements.title_action_card>Hlásit problém</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Pokud ve městě vidíte problém - <br>dejte nám o tom vědět
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>

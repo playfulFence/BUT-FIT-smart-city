@@ -55,6 +55,7 @@ Route::name('citymanager.')
         Route::get('/citymanager/new_tickets_list', 'ViewTicketListController')->name("new_tickets_list");
         Route::get('/citymanager/ticket/{ticket}', 'ShowToCMController')->name("ticket_detailed");
         Route::get('/citymanager/problems', 'ViewProblemsController')->name('problems');
+        Route::get('/citymanager/technicians', 'ViewTechniciansController')->name('techs');
     });
 
 

@@ -6,15 +6,21 @@
                 Citymanager page
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('user.tickets.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('citymanager.problems')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální problémy
             </a>
-{{--            <label class="w-4 h-4 text-gray-500" >|</label>--}}
-{{--            <a href="{{route('user.tickets.index.old')}}" class="@if(isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">--}}
-{{--                Archiv problémů--}}
-{{--            </a>--}}
         </div>
-        <h1 class="text-8xl mb-8 mt-4 ">Problémy</h1>
+
+        <div class="flex items-center justify-between">
+            <h1 class="text-8xl mb-8 mt-4 ">Problémy</h1>
+            {{--<button class="block right-0 text-white bg-blue-700 hover:bg-red-500 font-bold rounded-lg h-10 ml-44 mt-10 px-5 py-2.5 text-center " type="submit">--}}
+            <button class="text-white bg-blue-700 hover:bg-red-500, font-bold rounded-lg h-10 ml-44 mt-10 px-4 text-center" type="submit">
+                <a href="#">Výtvořit nový</a>
+            </button>
+        </div>
+
+        <div class = "w-full h-16"> </div>
+
         @foreach($problems as $problem)
             {{--            @dd($tickets)--}}
             {{--            @dump($ticket)--}}
@@ -48,7 +54,7 @@
             }
         @endphp
 
-        <x-paginator.index_problem  :problems="$problems" rout='{{$rout}}' ></x-paginator.index_problem>
+        <x-paginator :tickets="$problems" rout='{{$rout}}' ></x-paginator>
 
     </x-ticket_elements>
 @endsection
