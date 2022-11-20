@@ -21,7 +21,12 @@ class Service
 
     public function viewAll()
     {
-        return Ticket::paginate(10);// TODO
+        return Ticket::paginate(10);
+    }
+
+    public function viewNewUnsolved()
+    {
+        return Ticket::where('ticket_status_id','!=', 3)->orderBy('created_at', 'asc')->paginate(10);
     }
 
     public function indexOld($user)

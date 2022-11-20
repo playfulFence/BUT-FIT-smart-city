@@ -42,7 +42,7 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="#">
+                    <x-profile_elements.action_card href="{{route('citymanager.problems')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam problemů</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>Seznam všech nahlášených <br>
                                                                         a dosud nevyřešených problémů

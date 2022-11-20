@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("title","255");
             $table->string("description","15000")->nullable(true);
-            $table->string("state");
+            $table->unsignedTinyInteger("state"); // 0 - not even in process, 1 - processing(manager attached), 2(done)
             $table->unsignedBigInteger('manager_id');
             $table->index('manager_id','problems_manager_idx');
             $table->foreign('manager_id','problems_manager_fk')->on('managers')->references('id');
