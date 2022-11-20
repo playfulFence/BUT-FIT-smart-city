@@ -8,6 +8,7 @@ use App\Models\Ticket;
 use App\Models\TicketComments;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Service
 {
@@ -16,6 +17,11 @@ class Service
     {
         return $user->tickets()->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')->select('tickets.id','name','title','ticket_status_id')->where('ticket_status_id','!=',3)->paginate(10);
 //        ->where('ticket_status_id','!=',3)
+    }
+
+    public function viewAll()
+    {
+        return Ticket::paginate(10);// TODO
     }
 
     public function indexOld($user)

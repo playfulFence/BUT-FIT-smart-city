@@ -22,7 +22,7 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="#">
+                    <x-profile_elements.action_card href="{{route('citymanager.new_tickets_list')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam nových hlášení</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Nově podáné hlášení o problémech ve městě</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>

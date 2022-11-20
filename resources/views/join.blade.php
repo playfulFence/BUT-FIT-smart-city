@@ -3,10 +3,10 @@
     <x-form_elements.index>
         <x-form_elements.title>Přihláška do našeho týmu</x-form_elements.title>
         @error('formError')
-        <div class="text-xl text-white text-center bg-red-600 rounded-lg w-auto">Zpráva: {{$message}}</div>
+        <div class="text-xl text-black text-center bg-red-600 rounded-lg w-auto"><br>Zpráva: {{$message}}</div>
         @enderror
         @error('notError')
-        <div class="text-xl text-white text-center bg-green-600 rounded-lg w-auto">Zpráva: {{$message}}</div>
+        <div class="text-xl text-black text-center bg-green-600 rounded-lg w-auto"><br>Zpráva: {{$message}}</div>
         @enderror
 
         <x-form_elements.form action="{{route('join.store')}}">

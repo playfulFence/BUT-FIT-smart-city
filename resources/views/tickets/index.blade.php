@@ -22,7 +22,13 @@
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label class="w-fit break-all text-3xl mr-2">Nazev:  {{$ticket->title}}</label>
-                        <div class="w-fit text-xl">Status: {{$ticket->name}}</div>
+                        @if ($ticket->ticket_status_id == 1)
+                            <div class="w-fit text-xl">Status: Podáno</div>
+                        @elseif($ticket->ticket_status_id == 2)
+                            <div class="w-fit text-xl">Status: V průběhu</div>
+                        @elseif($ticket->ticket_status_id == 3)
+                            <div class="w-fit text-xl">Status: Vyřešeno</div>
+                        @endif
                     </div>
                     <div>
                         <div class="flex items-end justify-end">
