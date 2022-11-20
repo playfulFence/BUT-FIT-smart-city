@@ -11,7 +11,7 @@ class ViewTicketListController extends BaseController
 
     public function __invoke()
     {
-        $tickets = $this->service->viewAll();
+        $tickets = $this->service->viewNewUnsolved();
 
         return view('tickets.citymanager_index', compact('tickets'));
     }

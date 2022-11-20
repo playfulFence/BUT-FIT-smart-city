@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Citymanager;
 
 use App\Http\Controllers\Controller;
-use App\Services\Tickets\Service;
+use App\Services\Problems\Service;
 
 
 class BaseController extends Controller
