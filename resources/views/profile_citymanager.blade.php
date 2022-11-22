@@ -28,9 +28,9 @@
                     </x-profile_elements.action_card>
 
                     <x-profile_elements.action_card href="{{route('citymanager.problems')}}">
-                        <x-profile_elements.title_action_card>Zobrazit seznam problemů</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card><S></S>Seznam všech nahlášených <br>
-                                                                        a dosud nevyřešených problémů
+                        <x-profile_elements.title_action_card>Zobrazit seznam mnou vedených problemů</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card><S></S>Seznam problemů, které řešíte <br><br>
+
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
@@ -71,7 +71,7 @@
                         <x-profile_elements.discription_action_card>Seznam aktualních techických pracovníků<br><br></x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="#">
+                    <x-profile_elements.action_card href="{{route('citymanager.new_techs')}}">
                         <x-profile_elements.title_action_card>Zobrazit kandidáty na techického pracovníka</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam lidí, kteří se přihlásili <br>
                                                                     na pozici technikého pracovníka

@@ -56,6 +56,10 @@ Route::name('citymanager.')
         Route::get('/citymanager/ticket/{ticket}', 'ShowToCMController')->name("ticket_detailed");
         Route::get('/citymanager/problems', 'ViewProblemsController')->name('problems');
         Route::get('/citymanager/technicians', 'ViewTechniciansController')->name('techs');
+        Route::get('/citymanager/technicians/applies', 'ViewTechniciansAppliesController')
+            ->name('new_techs');
+        Route::get('/citymanager/technicians/applies/{tech}','AcceptTechApplicantController')
+            ->name('accept_tech');
     });
 
 Route::name('problem.')
@@ -63,6 +67,7 @@ Route::name('problem.')
     ->middleware('auth')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
+        Route::post('/problems/create', 'StoreController')->name("storeProb");
 });
 
 

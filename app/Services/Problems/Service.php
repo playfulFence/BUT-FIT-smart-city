@@ -20,49 +20,22 @@ class Service
         return Ticket::paginate(10);
     }
 
-    public function viewAllTechs()
-    {
-         return User::join('repairs', 'repairs.user_id','=', 'users.id')->select('users.name','users.lastname', 'users.email', 'users.phone')->where('repairs.approved',1)->paginate(10);
-    }
-
     public function viewNewUnsolved()
     {
         return Ticket::where('ticket_status_id','!=', 3)->orderBy('created_at', 'asc')->paginate(10);
     }
 
-    public function getAllUnsolved()
-    {
-        return Problems::where('state', 0)->paginate(10);
-    }
-
-
     public function store($data)
     {
-        $images=null;
-        if(isset($data['image'])){
-            $images = $data['image'];
-            unset($data['image']);
-        }
-        $data['user_id'] = Auth::id();
-        $data['ticket_status_id'] = 1;
 
-        $ticket = Ticket::create($data);
+        $data['manager_id'] = Auth::id();
+        $data['state'] = 1;
 
-        if(!$ticket){
+        $problem = Problems::create($data);
+
+        if(!$problem){
             return "Formulář se nepodařilo uložit";
         }
-
-        if($images) {
-            foreach ($images as $image) {
-                $path = $image->store('public/images/tickets');
-                $path = str_replace('public/','storage/',$path);
-                $newImage = Images::create(['path' => $path, 'ticket_id' => $ticket->id]);
-                if (!$newImage) {
-                    return "Obrázek se nepodařilo uložit";
-                }
-            }
-        }
-
 
         return null;
 

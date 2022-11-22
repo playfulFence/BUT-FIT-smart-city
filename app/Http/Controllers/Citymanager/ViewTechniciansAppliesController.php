@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Services\Citymanager;
 use Illuminate\Support\Facades\Auth;
 
-class ViewTicketListController extends BaseController
+class ViewTechniciansAppliesController extends BaseController
 {
 
     public function __invoke()
     {
-        $tickets = $this->service->viewNewUnsolved();
+        $techs = $this->service->appliedTechs();
 
-        return view('tickets.citymanager_index', compact('tickets'));
+        return view('technicians.view_applicants', compact('techs'));
     }
 }

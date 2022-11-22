@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('problems', function (Blueprint $table) {
             $table->id();
             $table->string("title","255");
+            $table->string("address","255");
             $table->string("description","15000")->nullable(true);
             $table->unsignedTinyInteger("state"); // 0 - not even in process, 1 - processing(manager attached), 2(done)
             $table->unsignedBigInteger('manager_id');
