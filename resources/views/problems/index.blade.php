@@ -13,9 +13,8 @@
 
         <div class="flex items-center justify-between">
             <h1 class="text-8xl mb-8 mt-4 ">Problémy</h1>
-            {{--<button class="block right-0 text-white bg-blue-700 hover:bg-red-500 font-bold rounded-lg h-10 ml-44 mt-10 px-5 py-2.5 text-center " type="submit">--}}
             <button class="text-white bg-blue-700 hover:bg-red-500, font-bold rounded-lg h-10 ml-44 mt-10 px-4 text-center" type="submit">
-                <a href="#">Výtvořit nový</a>
+                <a href="{{route('problem.createProb')}}">Výtvořit nový</a>
             </button>
         </div>
 

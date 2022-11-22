@@ -12,7 +12,6 @@ class ViewTechniciansController extends BaseController
     public function __invoke()
     {
         $techs = $this->service->viewAllTechs();
-        $tech_names = $this->service->getTechNames();
 
         return view('technicians.view_techs_list', compact('techs'));
     }

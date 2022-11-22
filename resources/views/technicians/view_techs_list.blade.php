@@ -9,10 +9,6 @@
             <a href="{{route('citymanager.techs')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální technici
             </a>
-            {{--            <label class="w-4 h-4 text-gray-500" >|</label>--}}
-            {{--            <a href="{{route('user.tickets.index.old')}}" class="@if(isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">--}}
-            {{--                Archiv problémů--}}
-            {{--            </a>--}}
         </div>
 
         <div class="flex items-center justify-between">
@@ -31,11 +27,13 @@
             <div class=" my-3 mx-5 min-w-3/4 p-6 bg-white border border-black rounded-l">
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
-                        <label class="w-fit break-all text-3xl mr-2">Jméno: {{}}</label>
+                        <label class="w-fit break-all text-3xl mr-2">Jméno:  {{$tech->name}} {{$tech->lastname}}</label><br>
+                        <label class="w-fit break-all text-2xl mr-2">Číslo:  {{$tech->phone}}</label><br>
+                        <label class="w-fit break-all text-2xl mr-2">E-mail: {{$tech->email}}</label>
                     </div>
                     <div>
-                        <div class="flex items-end justify-end">
-                            {{--                            <x-ticket_elements.buttom href="{{route('user.tickets.show',$ticket->id)}}">Podívat se</x-ticket_elements.buttom>--}}
+                        <div class="flex items-end justify-end mt-6">
+                            <x-ticket_elements.buttom href="#">Podívat se</x-ticket_elements.buttom>
                         </div>
                     </div>
                 </div>

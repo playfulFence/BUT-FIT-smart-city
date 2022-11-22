@@ -4,6 +4,7 @@ namespace App\Services\Problems;
 
 
 use App\Models\Images;
+use App\Models\Repairs;
 use App\Models\Ticket;
 use App\Models\TicketComments;
 use App\Models\Problems;
@@ -17,6 +18,11 @@ class Service
     public function viewAll()
     {
         return Ticket::paginate(10);
+    }
+
+    public function viewAllTechs()
+    {
+         return User::join('repairs', 'repairs.user_id','=', 'users.id')->select('users.name','users.lastname', 'users.email', 'users.phone')->where('repairs.approved',1)->paginate(10);
     }
 
     public function viewNewUnsolved()

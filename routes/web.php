@@ -58,6 +58,13 @@ Route::name('citymanager.')
         Route::get('/citymanager/technicians', 'ViewTechniciansController')->name('techs');
     });
 
+Route::name('problem.')
+    ->namespace('App\Http\Controllers\Problems')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/problems/create', 'CreateController')->name("createProb");
+});
+
 
 Route::name('join.')
     ->namespace('App\Http\Controllers\Join')
