@@ -44,22 +44,33 @@ Route::name('profile.')
     Route::get('/profile', 'IndexController')->name("index");
     Route::get('/profile/edit', 'EditController')->name("edit");
     Route::get('/profile/citymanager', 'CityManagerController')->name("cityman");
+        Route::get('/profile/admin', 'AdminController')->name("admin");
     Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
     Route::post('/profile', 'UpdateController')->name("update");
 });
+
+Route::name('admin.')
+    ->namespace('App\Http\Controllers\Admin')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/admin/problems', 'ViewProbsController')->name("allProblems");
+        Route::get('/admin/problems/archieve', 'ArchieveController')->name("archProbs");
+        Route::get('/admin/user_accept', 'UserAcceptController')->name("userAccept");
+    });
 
 Route::name('citymanager.')
     ->namespace('App\Http\Controllers\Citymanager')
     ->middleware('auth')
     ->group(function () {
         Route::get('/citymanager/new_tickets_list', 'ViewTicketListController')->name("new_tickets_list");
-        Route::get('/citymanager/ticket/{ticket}', 'ShowToCMController')->name("ticket_detailed");
+        Route::get('/citymanager/ticket/{ticket}', 'ShowToCMController')->name("ticketDetailed");
         Route::get('/citymanager/problems', 'ViewProblemsController')->name('problems');
         Route::get('/citymanager/technicians', 'ViewTechniciansController')->name('techs');
         Route::get('/citymanager/technicians/applies', 'ViewTechniciansAppliesController')
             ->name('new_techs');
         Route::get('/citymanager/technicians/applies/{tech}','AcceptTechApplicantController')
             ->name('accept_tech');
+        Route::get('/citymanager/problems/archieve', 'ArchieveController')->name("archProbs");
     });
 
 Route::name('problem.')
@@ -68,6 +79,7 @@ Route::name('problem.')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
         Route::post('/problems/create', 'StoreController')->name("storeProb");
+        //Route::get('/problems/all', 'ArchieveController')->name("archProbs");
 });
 
 

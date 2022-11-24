@@ -24,6 +24,11 @@ class Service
         return Problems::where('manager_id', Auth::id())->paginate(10);
     }
 
+    public function getSolved()
+    {
+        return Problems::where('state', 2)->where('manager_id', Auth::id())->paginate(10);
+    }
+
     public function viewNewUnsolved()
     {
         return Ticket::where('ticket_status_id','!=', 3)->orderBy('created_at', 'asc')->paginate(10);

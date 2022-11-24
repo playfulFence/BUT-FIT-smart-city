@@ -7,10 +7,10 @@
             <x-profile_elements.tabs>
                 <x-profile_elements.tab href="{{route('profile.index')}}">Uživatel
                 </x-profile_elements.tab>
-                @if($is_admin)
-                <x-profile_elements.tab href="{{route('profile.admin')}}">Administrátor</x-profile_elements.tab>
+                <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Administrátor</x-profile_elements.tab>
+                @if($is_manager)
+                <x-profile_elements.tab href="{{route('profile.cityman')}}">Správce města</x-profile_elements.tab>
                 @endif
-                <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Správce města</x-profile_elements.tab>
                 @if($is_tech)
                     <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
                 @endif
@@ -22,19 +22,14 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="{{route('citymanager.new_tickets_list')}}">
-                        <x-profile_elements.title_action_card>Zobrazit seznam nových hlášení</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Nově podáné hlášení o problémech ve městě</x-profile_elements.discription_action_card>
-                    </x-profile_elements.action_card>
-
-                    <x-profile_elements.action_card href="{{route('citymanager.problems')}}">
-                        <x-profile_elements.title_action_card>Zobrazit seznam mnou vedených problemů</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card><S></S>Seznam problemů, které řešíte <br><br>
+                    <x-profile_elements.action_card href="{{route('admin.allProblems')}}">
+                        <x-profile_elements.title_action_card>Zobrazit seznam všech problemů</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card><S></S>Seznam vsech dosud neřešených problemů <br><br>
 
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('citymanager.archProbs')}}">
+                    <x-profile_elements.action_card href="{{route('admin.archProbs')}}">
                         <x-profile_elements.title_action_card>Zobrazit archivované problémy</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>Archiv problémů <br><br></x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
@@ -45,20 +40,10 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="#">
-                        <x-profile_elements.title_action_card>Výtvořit nový technický požádavek</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Výtvoření a odesilání nového požadavku pro techniky</x-profile_elements.discription_action_card>
-                    </x-profile_elements.action_card>
-
-
-                    <x-profile_elements.action_card href="#">
-                        <x-profile_elements.title_action_card>Zobrazit seznam odeslaných techických požadavků</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Seznam odeslaných technických požadavků</x-profile_elements.discription_action_card>
-                    </x-profile_elements.action_card>
-
-                    <x-profile_elements.action_card href="#">
-                        <x-profile_elements.title_action_card>Zobrazit archivované technické požadavky</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card> Archiv technických požadavků<br><br> </x-profile_elements.discription_action_card>
+                    <x-profile_elements.action_card href="{{route('admin.userAccept')}}">
+                        <x-profile_elements.title_action_card>Zobrazit žádosti o registraci</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Seznam uživatelů, kteří chtějí
+                                                                    začit pracovat se systémem</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
                 </x-profile_elements.action_list>
