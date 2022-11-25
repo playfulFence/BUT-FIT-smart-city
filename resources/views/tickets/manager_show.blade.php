@@ -58,15 +58,15 @@
 
         @foreach($comments as $comment)
             <div class="@if($comment->user_id === \Illuminate\Support\Facades\Auth::id()) ml-auto @else mr-auto @endif  my-3  w-fit p-6 bg-white border border-black rounded-lg">
-            <label class="w-fit break-all border-b border-black text-xl mb-2">@if($comment->user_id === \Illuminate\Support\Facades\Auth::id()) Vy @else Moderator @endif | {{$comment->created_at}}</label>
+            <label class="w-fit break-all border-b border-black text-xl mb-2">@if($comment->user_id === \Illuminate\Support\Facades\Auth::id()) Vy @else Uživatel @endif | {{$comment->created_at}}</label>
             <div class="w-fit mt-2 text-xl">{{$comment->content}}</div>
             </div>
         @endforeach
         <div class="flex justify-end">
-            <x-paginator :tickets="$comments" rout="{{route('user.tickets.show',$ticket->id)}}"></x-paginator>
+            <x-paginator :tickets="$comments" rout="{{route('manager.tickets.show',$ticket->id)}}"></x-paginator>
         </div>
         @if($ticket->ticket_status_id != 3)
-            <x-form_elements.form action="{{route('user.tickets.add.comment',$ticket->id)}}">
+            <x-form_elements.form action="{{route('manager.tickets.add.comment',$ticket->id)}}">
                 <div class="mx-5">
                 <x-form_elements.textarea name="content">Pridat komentar</x-form_elements.textarea>
                     <x-form_elements.buttom class="flex justify-end" >

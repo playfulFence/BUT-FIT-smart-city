@@ -38,4 +38,20 @@ class Service
     {
         return User::join('repairs', 'repairs.user_id','=', 'users.id')->select('users.name','users.lastname', 'users.email', 'users.phone')->where('repairs.approved',1)->paginate(10);
     }
+
+    public function addComment($data,$ticket): ?string
+    {
+
+        $data['user_id'] = Auth::id();
+        $data['ticket_id'] = $ticket->id;
+
+        $message = null;
+
+        $comment = TicketComments::create($data);
+        if(!$comment){
+            $message = 'Komentář se nepodařilo přidat';
+        }
+
+        return $message;
+    }
 }

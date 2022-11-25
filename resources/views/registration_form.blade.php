@@ -20,7 +20,7 @@
 
             </div>
             <div class="grid gap-6 md:grid-cols-2">
-                <x-form_elements.universal type="date" name="birthday">Birthday</x-form_elements.universal>
+                <x-form_elements.universal type="date" name="birthday">Datum narození</x-form_elements.universal>
             </div>
             <x-form_elements.buttom class="flex items-center justify-center">
                 Registrovat

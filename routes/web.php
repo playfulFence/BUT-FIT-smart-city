@@ -29,6 +29,7 @@ Route::name('admin.')
 Route::name('technician.')
     ->namespace('App\Http\Controllers\Manager\Technicians')
     ->middleware('auth')
+    ->middleware('manager')
     ->group(function () {
         Route::get('/manager/technicians', 'IndexController')->name('index');
         Route::get('/manager/technicians/new', 'IndexNewController')
@@ -40,14 +41,17 @@ Route::name('technician.')
 Route::name('manager.problems.')
     ->namespace('App\Http\Controllers\Manager\Problems')
     ->middleware('auth')
+    ->middleware('manager')
     ->group(function () {
         Route::get('/manager/problems', 'IndexController')->name('index');
         Route::get('/manager/problems/old', 'IndexOldController')->name("index.old");
+
     });
 
 Route::name('problem.')
     ->namespace('App\Http\Controllers\Problems')
     ->middleware('auth')
+    ->middleware('manager')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
         Route::post('/problems/create', 'StoreController')->name("storeProb");
@@ -58,9 +62,11 @@ Route::name('problem.')
 Route::name('manager.tickets.')
     ->namespace('App\Http\Controllers\Tickets\Manager')
     ->middleware('auth')
+    ->middleware('manager')
     ->group(function () {
         Route::get('/manager/tickets', 'IndexController')->name("index");
-        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show"); //todo
+        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");//todo
+        Route::post('/manager/tickets/{ticket}', 'AddCommentController')->name("add.comment");
     });
 
 

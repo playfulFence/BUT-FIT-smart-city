@@ -27,5 +27,7 @@ class UserApproved
             ]);
         }
         return $next($request);
+
+
     }
 }
