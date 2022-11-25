@@ -26,6 +26,7 @@ Route::name('admin.')
         Route::get('/admin/user_accept', 'UserAcceptController')->name("userAccept");
     });
 
+//manager
 Route::name('technician.')
     ->namespace('App\Http\Controllers\Manager\Technicians')
     ->middleware('auth')
@@ -48,6 +49,7 @@ Route::name('manager.problems.')
 
     });
 
+//manager
 Route::name('problem.')
     ->namespace('App\Http\Controllers\Problems')
     ->middleware('auth')
@@ -58,7 +60,7 @@ Route::name('problem.')
         //Route::get('/problems/all', 'IndexOldController')->name("archProbs");
     });
 
-
+//manager
 Route::name('manager.tickets.')
     ->namespace('App\Http\Controllers\Tickets\Manager')
     ->middleware('auth')
@@ -138,6 +140,7 @@ Route::name('profile.')
 Route::name('manager.requirements.')
     ->namespace('App\Http\Controllers\Requirements\Manager')
     ->middleware('auth')
+    ->middleware('manager')
     ->group(function () {
         Route::get('manager/requirements', 'RequirementController@index')->name("index");
         Route::get('manager/requirements/old', 'RequirementController@indexOld')->name("index.old");
@@ -152,6 +155,7 @@ Route::name('manager.requirements.')
 Route::name('technician.requirements.')
     ->namespace('App\Http\Controllers\Requirements\Technician')
     ->middleware('auth')
+    ->middleware('repairs')
     ->group(function () {
         Route::get('technician/requirements', 'RequirementController@index')->name("index");
         Route::get('technician/requirements/old', 'RequirementController@indexOld')->name("index.old");
