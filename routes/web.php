@@ -131,7 +131,7 @@ Route::name('profile.')
         Route::get('/profile', 'IndexController')->name("index");
         Route::get('/profile/edit', 'EditController')->name("edit");
         Route::get('/profile/manager', 'ManagerController')->name("manager")->middleware('manager');
-        Route::get('profile/technician', 'TechnicianController')->name("technician");
+        Route::get('profile/technician', 'TechnicianController')->name("technician")->middleware('repairs');
         Route::get('/profile/admin', 'AdminController')->name("admin")->middleware("admin");
         Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
         Route::post('/profile', 'UpdateController')->name("update");
