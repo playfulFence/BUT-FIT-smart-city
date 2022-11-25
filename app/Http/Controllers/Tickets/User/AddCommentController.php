@@ -14,12 +14,11 @@ class AddCommentController extends BaseController
     public function __invoke(Ticket $ticket,AddCommentRequest $request)
     {
         if($ticket->user_id != Auth::id()){
-            redirect(route('profile.index'));
+            return redirect(route('profile.index'));
         }
 
         $data = $request->validated();
 
-//        dd($data);
         $message = $this->service->addComment($data,$ticket);
 
         if(!$message){

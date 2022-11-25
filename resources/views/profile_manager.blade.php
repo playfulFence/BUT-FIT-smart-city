@@ -12,7 +12,7 @@
                 @endif
                 <x-profile_elements.tab color="text-blue-700 border-b-blue-700" href="#">Správce města</x-profile_elements.tab>
                 @if($is_repair)
-                    <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
+                    <x-profile_elements.tab href="{{route('profile.technician')}}">Servisní technik</x-profile_elements.tab>
                 @endif
                 <x-profile_elements.tab href="{{route('profile.edit')}}">Změny profilu</x-profile_elements.tab>
             </x-profile_elements.tabs>

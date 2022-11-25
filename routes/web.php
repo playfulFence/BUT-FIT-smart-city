@@ -107,7 +107,34 @@ Route::name('profile.')
         Route::get('/profile', 'IndexController')->name("index");
         Route::get('/profile/edit', 'EditController')->name("edit");
         Route::get('/profile/manager', 'ManagerController')->name("manager")->middleware('manager');
+        Route::get('profile/technician', 'TechnicianController')->name("technician");
         Route::get('/profile/admin', 'AdminController')->name("admin")->middleware("admin");
         Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
         Route::post('/profile', 'UpdateController')->name("update");
+    });
+
+Route::name('manager.requirements.')
+    ->namespace('App\Http\Controllers\Requirements\Manager')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('manager/requirements', 'RequirementController@index')->name("index");
+        Route::get('manager/requirements/old', 'RequirementController@indexOld')->name("index.old");
+        Route::get('manager/requirements/create', 'RequirementController@create')->name("create");
+        Route::post('manager/requirements', 'RequirementController@store')->name("store");
+        Route::get('manager/requirements/{requirement}/show', 'RequirementController@show')->name("show");
+        Route::post('manager/requirements/{requirement}/show', 'RequirementController@addComment')->name("comment");
+        Route::get('manager/requirements/{requirement}/edit', 'RequirementController@edit')->name("edit");
+        Route::post('manager/requirements/{requirement}', 'RequirementController@update')->name("update");
+    });
+
+Route::name('technician.requirements.')
+    ->namespace('App\Http\Controllers\Requirements\Technician')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('technician/requirements', 'RequirementController@index')->name("index");
+        Route::get('technician/requirements/old', 'RequirementController@indexOld')->name("index.old");
+        Route::get('technician/requirements/{requirement}/show', 'RequirementController@show')->name("show");
+        Route::post('technician/requirements/{requirement}/show', 'RequirementController@addComment')->name("comment");
+        Route::get('technician/requirements/{requirement}/edit', 'RequirementController@edit')->name("edit");
+        Route::post('technician/requirements/{requirement}', 'RequirementController@update')->name("update");
     });
