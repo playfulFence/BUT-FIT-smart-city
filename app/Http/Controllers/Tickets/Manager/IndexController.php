@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Citymanager;
+namespace App\Http\Controllers\Tickets\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Services\Citymanager;
 use Illuminate\Support\Facades\Auth;
 
-class ViewTicketListController extends BaseController
+class IndexController extends BaseController
 {
 
     public function __invoke()
     {
         $tickets = $this->service->viewNewUnsolved();
 
-        return view('tickets.citymanager_index', compact('tickets'));
+        return view('tickets.manager_index', compact('tickets'));
     }
 }

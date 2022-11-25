@@ -22,7 +22,7 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="{{route('citymanager.new_tickets_list')}}">
+                    <x-profile_elements.action_card href="{{route('manager.tickets.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam nových hlášení</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Nově podáné hlášení o problémech ve městě</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
@@ -32,7 +32,7 @@
                         <x-profile_elements.discription_action_card>Aktivní servisní požadavky</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('citymanager.techs')}}">
+                    <x-profile_elements.action_card href="{{route('technician.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam techniků</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam aktualních techických pracovníků<br><br></x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
@@ -40,7 +40,7 @@
                 </x-profile_elements.action_list>
 
                 <x-profile_elements.action_list class="mr-5">
-                    <x-profile_elements.action_card href="{{route('citymanager.problems')}}">
+                    <x-profile_elements.action_card href="{{route('manager.problems.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam mnou vedených problemů</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>Seznam problemů, které řešíte <br><br>
 
@@ -52,7 +52,7 @@
                         <x-profile_elements.discription_action_card>Archív technických požadavků<br><br> </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('citymanager.new_techs')}}">
+                    <x-profile_elements.action_card href="{{route('technician.index.new')}}">
                         <x-profile_elements.title_action_card>Zobrazit kandidáty na techického pracovníka</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam lidí, kteří se přihlásili <br>
                             na pozici technikého pracovníka
@@ -61,12 +61,12 @@
 
                 </x-profile_elements.action_list>
                 <x-profile_elements.action_list class="mr-5">
-                    <x-profile_elements.action_card href="{{route('citymanager.archProbs')}}">
+                    <x-profile_elements.action_card href="{{route('manager.problems.index.old')}}">
                         <x-profile_elements.title_action_card>Zobrazit archivované problémy</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card><S></S>Archiv problémů <br><br></x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('technician.requirements.create')}}">
+                    <x-profile_elements.action_card href="{{route('manager.requirements.create')}}">
                         <x-profile_elements.title_action_card>Výtvořit nový technický požádavek</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Výtvoření a odesilání nového požadavku pro technika</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>

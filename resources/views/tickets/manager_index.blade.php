@@ -2,11 +2,11 @@
 @section('content')
     <x-ticket_elements>
         <div>
-            <a href="{{route('profile.cityman')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
-                Citymanager Page
+            <a href="{{route('profile.manager')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+                Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('citymanager.new_tickets_list')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('manager.tickets.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Nově podáné
             </a>
         </div>
@@ -33,7 +33,7 @@
                     </div>
                     <div>
                         <div class="flex items-end justify-end">
-                            <x-ticket_elements.buttom href="{{route('citymanager.ticketDetailed',$ticket->id)}}">Podívat se</x-ticket_elements.buttom>
+                            <x-ticket_elements.buttom href="{{route('manager.tickets.show',$ticket->id)}}">Podívat se</x-ticket_elements.buttom>
                         </div>
                     </div>
                 </div>
@@ -43,10 +43,7 @@
 
 
         @php
-            $rout = route('user.tickets.index');
-            if(isset($old)){
-                $rout = route('user.tickets.index.old');
-            }
+            $rout = route('manager.tickets.index');
         @endphp
 
         <x-paginator  :tickets="$tickets" rout='{{$rout}}' ></x-paginator>

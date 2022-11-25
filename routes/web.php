@@ -26,19 +26,23 @@ Route::name('admin.')
         Route::get('/admin/user_accept', 'UserAcceptController')->name("userAccept");
     });
 
-Route::name('citymanager.')
-    ->namespace('App\Http\Controllers\Citymanager')
+Route::name('technician.')
+    ->namespace('App\Http\Controllers\Manager\Technicians')
     ->middleware('auth')
     ->group(function () {
-        Route::get('/citymanager/new_tickets_list', 'ViewTicketListController')->name("new_tickets_list");
-        Route::get('/citymanager/ticket/{ticket}', 'ShowToCMController')->name("ticketDetailed");
-        Route::get('/citymanager/problems', 'ViewProblemsController')->name('problems');
-        Route::get('/citymanager/technicians', 'ViewTechniciansController')->name('techs');
-        Route::get('/citymanager/technicians/applies', 'ViewTechniciansAppliesController')
-            ->name('new_techs');
-        Route::get('/citymanager/technicians/applies/{tech}','AcceptTechApplicantController')
-            ->name('accept_tech');
-        Route::get('/citymanager/problems/archieve', 'ArchieveController')->name("archProbs");
+        Route::get('/manager/technicians', 'IndexController')->name('index');
+        Route::get('/manager/technicians/new', 'IndexNewController')
+            ->name('index.new');
+        Route::get('/manager/technicians/new/{tech}','AddController')
+            ->name('add');
+    });
+
+Route::name('manager.problems.')
+    ->namespace('App\Http\Controllers\Manager\Problems')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/manager/problems', 'IndexController')->name('index');
+        Route::get('/manager/problems/old', 'IndexOldController')->name("index.old"); //todo change to manager show id
     });
 
 Route::name('problem.')
@@ -47,8 +51,20 @@ Route::name('problem.')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
         Route::post('/problems/create', 'StoreController')->name("storeProb");
-        //Route::get('/problems/all', 'ArchieveController')->name("archProbs");
-});
+        //Route::get('/problems/all', 'IndexOldController')->name("archProbs");
+    });
+
+
+Route::name('manager.tickets.')
+    ->namespace('App\Http\Controllers\Tickets\Manager')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/manager/tickets', 'IndexController')->name("index");
+        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");
+    });
+
+
+
 
 
 

@@ -2,15 +2,15 @@
 @section('content')
     <x-ticket_elements>
         <div>
-            <a href="{{route('profile.cityman')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
-                Citymanager page
+            <a href="{{route('profile.manager')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+                Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('citymanager.techs')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('technician.index')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální technici
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('citymanager.techs')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('technician.index.new')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální technici
             </a>
         </div>

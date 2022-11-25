@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Citymanager;
+namespace App\Http\Controllers\Manager\Problems;
 
 use App\Http\Controllers\Controller;
 use App\Services\Citymanager\Service;

@@ -2,11 +2,11 @@
 @section('content')
     <x-ticket_elements>
         <div>
-            <a href="{{route('profile.cityman')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
-                Citymanager page
+            <a href="{{route('profile.manager')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+                Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('citymanager.techs')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('technician.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální technici
             </a>
         </div>
@@ -15,7 +15,7 @@
             <h1 class="text-8xl mb-8 mt-4 ">Technici</h1>
             {{--<button class="block right-0 text-white bg-blue-700 hover:bg-red-500 font-bold rounded-lg h-10 ml-44 mt-10 px-5 py-2.5 text-center " type="submit">--}}
             <button class="text-white bg-blue-700 hover:bg-red-500, font-bold rounded-lg h-10 ml-44 mt-10 px-4 text-center" type="submit">
-                <a href="{{route('citymanager.new_techs')}}">Prohlednout seznam zájemců</a>
+                <a href="{{route('technician.index.new')}}">Prohlednout seznam zájemců</a>
             </button>
         </div>
 
@@ -43,7 +43,7 @@
 
 
         @php
-            $rout = route('citymanager.problems');
+            $rout = route('technician.index');
 //            if(isset($old)){
 //                $rout = route('user.tickets.index.old');
 //            }

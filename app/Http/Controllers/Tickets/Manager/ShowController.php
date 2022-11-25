@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Citymanager;
+namespace App\Http\Controllers\Tickets\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\TicketStatuses;
 use Illuminate\Support\Facades\Auth;
 
-class ShowToCMController extends Controller
+class ShowController extends Controller
 {
     public function __invoke(Ticket $ticket)
     {
