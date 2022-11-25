@@ -13,10 +13,25 @@ use Illuminate\Support\Facades\DB;
 class Service
 {
 
-    public function index($user)
+    public function index($user,$data)
     {
-        return $user->tickets()->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')->select('tickets.id','name','title','ticket_status_id')->where('ticket_status_id','!=',3)->paginate(10);
-//        ->where('ticket_status_id','!=',3)
+//        return $user->tickets()->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')->select('tickets.id','name','title','ticket_status_id')->where('ticket_status_id','!=',3)->paginate(10);
+
+        if(isset($data['title'])){
+            return $user->tickets()
+                ->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')
+                ->select('tickets.id','name','title','ticket_status_id')
+                ->where('ticket_status_id','!=',3)
+                ->where("title","like","%{$data['title']}%")
+                ->paginate(10);
+        }
+
+        return $user->tickets()
+            ->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')
+            ->select('tickets.id','name','title','ticket_status_id')
+            ->where('ticket_status_id','!=',3)
+            ->paginate(10);
+
     }
 
     public function viewAll()
@@ -29,9 +44,22 @@ class Service
         return Ticket::where('ticket_status_id','!=', 3)->orderBy('created_at', 'asc')->paginate(10);
     }
 
-    public function indexOld($user)
+    public function indexOld($user,$data)
     {
-        return $user->tickets()->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')->select('tickets.id','name','title','ticket_status_id')->where('ticket_status_id','=',3)->paginate(10);
+        if(isset($data['title'])){
+            return $user->tickets()
+                ->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')
+                ->select('tickets.id','name','title','ticket_status_id')
+                ->where('ticket_status_id','=',3)
+                ->where("title","like","%{$data['title']}%")
+                ->paginate(10);
+        }
+
+        return $user->tickets()
+            ->leftJoin('ticket_statuses','tickets.ticket_status_id','ticket_statuses.id')
+            ->select('tickets.id','name','title','ticket_status_id')
+            ->where('ticket_status_id','=',3)
+            ->paginate(10);
 //        ->where('ticket_status_id','!=',3)
     }
 

@@ -17,6 +17,20 @@
         <h1 class="text-8xl mb-8 mt-4 ">Hlášení o problémech</h1>
 
         <br>
+        <form action="@if(!isset($old)) {{route('user.tickets.index')}} @else {{route('user.tickets.index.old')}} @endif">
+            <div class="flex items-center justify-center p-6">
+                <input type="search" id="title" name="title" placeholder="Zadejte jméno požadavku..."
+                       class=" file:border-0 file:border-r  w-full p-2.5 rounded-lg shadow-inner value:text-white bg-gray-100">
+                <div class="flex items-center justify-center m-3">
+                    <button class="text-white bg-blue-500 hover:bg-blue-700 font-bold rounded-lg sm:w-auto px-5 py-2.5 text-center " type="submit">
+                        Hledat
+                    </button>
+                </div>
+                <a href="@if(!isset($old)) {{route('user.tickets.index')}} @else {{route('user.tickets.index.old')}} @endif" class="bg-yellow-500 text-center text-white  hover:bg-green-500 px-5 py-2.5 rounded-lg font-bold w-auto flex items-center justify-center">
+                    Obnovit
+                </a>
+            </div>
+        </form>
         <br>
         <br>
         @foreach($tickets as $ticket)

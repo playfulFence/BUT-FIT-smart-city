@@ -16,38 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return phpinfo();
-})->name("hello");
-
-Route::name('registration.')
-    ->namespace('App\Http\Controllers\Registration')
-    ->middleware('auth.is')
-    ->group(function () {
-    Route::get('/registration', 'CreateController')->name("create");
-    Route::post('/registration', 'StoreController')->name("store");
-});
-
-Route::name('authentication.')
-    ->namespace('App\Http\Controllers\Authentication')
-    ->middleware('auth.is')
-    ->group(function () {
-    Route::get('/login', 'IndexController')->name("index");
-    Route::post('/login', 'CheckController')->name("check");
-    Route::get('/logout', 'LogoutController')->name("exit")->withoutMiddleware('auth.is');
-});
-
-Route::name('profile.')
-    ->namespace('App\Http\Controllers\Profile')
-    ->middleware('auth')
-    ->group(function () {
-    Route::get('/profile', 'IndexController')->name("index");
-    Route::get('/profile/edit', 'EditController')->name("edit");
-    Route::get('/profile/citymanager', 'CityManagerController')->name("cityman");
-        Route::get('/profile/admin', 'AdminController')->name("admin");
-    Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
-    Route::post('/profile', 'UpdateController')->name("update");
-});
 
 Route::name('admin.')
     ->namespace('App\Http\Controllers\Admin')
@@ -83,6 +51,31 @@ Route::name('problem.')
 });
 
 
+
+// -----------------------------------------
+Route::get('/', function () {
+    return redirect(route('authentication.index'));
+})->name("main");
+
+
+
+Route::name('registration.')
+    ->namespace('App\Http\Controllers\Registration')
+    ->middleware('auth.is')
+    ->group(function () {
+        Route::get('/registration', 'CreateController')->name("create");
+        Route::post('/registration', 'StoreController')->name("store");
+    });
+
+Route::name('authentication.')
+    ->namespace('App\Http\Controllers\Authentication')
+    ->middleware('auth.is')
+    ->group(function () {
+        Route::get('/login', 'IndexController')->name("index");
+        Route::post('/login', 'CheckController')->name("check")->middleware('user.approved');
+        Route::get('/logout', 'LogoutController')->name("exit")->withoutMiddleware('auth.is');
+    });
+
 Route::name('join.')
     ->namespace('App\Http\Controllers\Join')
     ->middleware('auth')
@@ -90,7 +83,6 @@ Route::name('join.')
         Route::get('/profile/join', 'CreateController')->name("create");
         Route::post('/profile/join', 'StoreController')->name("store");
     });
-
 
 
 
@@ -106,4 +98,16 @@ Route::name('user.tickets.')
         Route::get('user/tickets/image/{ticket}', 'ShowImagesController')->name("show.images");
         Route::post('user/tickets/image/{ticket}', 'AddImageController')->name("add.images");
         Route::get('user/tickets/{ticket}', 'ShowController')->name("show");
+    });
+
+Route::name('profile.')
+    ->namespace('App\Http\Controllers\Profile')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/profile', 'IndexController')->name("index");
+        Route::get('/profile/edit', 'EditController')->name("edit");
+        Route::get('/profile/manager', 'ManagerController')->name("manager")->middleware('manager');
+        Route::get('/profile/admin', 'AdminController')->name("admin")->middleware("admin");
+        Route::post('/profile/edit', 'UpdatePasswordController')->name("update.password");
+        Route::post('/profile', 'UpdateController')->name("update");
     });

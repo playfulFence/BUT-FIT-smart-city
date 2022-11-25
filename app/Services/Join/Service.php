@@ -15,31 +15,27 @@ class Service
     {
 
         $userId = Auth::id();
+        $user = Auth::user();
         $reply = [];
         $reply['message'] = 'Váš požadavek se nepodařilo uložit';
         $reply['newItem'] = null;
 
-
-        if($data['join'] == 1) {
-            if(!empty(Admins::where('user_id', $userId)->get()->toArray())){
-                $reply['message'] = 'Již jste odeslali přihlášku';
-            }else{
+        if($user['specialization'] == 0) {
+            if ($data['join'] == 1) {
                 $reply['newItem'] = Admins::create(['user_id' => $userId]);
-            }
-        }elseif ($data['join'] == 2){
-            if(!empty(Managers::where('user_id', $userId)->get()->toArray())){
-                $reply['message'] = 'Již jste odeslali přihlášku';
+            } elseif ($data['join'] == 2) {
+                $reply['newItem'] = Managers::create(['user_id' => $userId]);
+            } elseif ($data['join'] == 3) {
+                $reply['newItem'] = Repairs::create(['user_id' => $userId]);
             }else{
-                $reply['newItem'] =  Managers::create(['user_id' => $userId]);
+                return $reply;
             }
-        }elseif ($data['join'] == 3){
-            if(!empty(Repairs::where('user_id', $userId)->get()->toArray())){
-                $reply['message'] = 'Již jste odeslali přihlášku';
-            }else{
-                $reply['newItem'] =  Repairs::create(['user_id' => $userId]);
-            }
-        }
 
+            $user->specialization = 1;
+            $user->save();
+        }else{
+            $reply['message'] = "Můžete poslat pouze jednu přihlášku";
+        }
         return $reply;
 
     }

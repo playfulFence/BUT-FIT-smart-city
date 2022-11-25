@@ -19,8 +19,9 @@ class StoreController extends BaseController
             ]);
         }
 
-        Auth::login($user);
-        return redirect()->intended(route('profile.index'));
+        return redirect(route('authentication.index'))->withErrors([
+            'notError' => 'Zaregistrovali jste se, počkejte prosím na schválení vašeho profilu',
+        ]);
 
     }
 }

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date("birthday")->nullable(true);
             $table->string("phone","15")->unique()->nullable(true);
             $table->string('photo')->nullable(true);
+            $table->boolean("specialization")->default(false);
             $table->boolean("approved")->default(false);
             $table->timestamps();
 

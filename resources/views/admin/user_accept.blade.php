@@ -28,13 +28,14 @@
                             <div class="w-fit text-xl">Číslo:  {{$newcomer->phone}}</div>
                             <div class="w-fit text-xl">E-mail: {{$newcomer->email}}</div>
                     </div>
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <button class="text-white bg-green-600 hover:bg-green-200, font-bold rounded-lg h-10 ml-44 mt-10 px-4 text-center" type="submit">
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="justify-end flex">
+                            <button class="text-white bg-green-600 hover:bg-green-200 w-fit font-bold rounded-lg h-10 ml-44 mt-10 px-5 text-center" type="submit">
                                 <a href="#">Povolit</a>
                             </button>
-
-                            <button class="text-white bg-red-600 hover:bg-red-100, font-bold rounded-lg h-10 ml-44 mt-10 px-4 text-center" type="submit">
+                        </div>
+                        <div class="justify-end flex">
+                            <button class="text-white bg-red-600 hover:bg-red-100 w-fit font-bold rounded-lg h-10 ml-44 mt-1 px-4 text-center" type="submit">
                                 <a href="#">Zakázat</a>
                             </button>
                         </div>

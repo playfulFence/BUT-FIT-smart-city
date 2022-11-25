@@ -12,10 +12,10 @@
                 @endif
 
                 @if($is_manager)
-                    <x-profile_elements.tab href="{{route('profile.cityman')}}">Správce města</x-profile_elements.tab>
+                    <x-profile_elements.tab href="{{route('profile.manager')}}">Správce města</x-profile_elements.tab>
                 @endif
 
-                @if($is_tech)
+                @if($is_repair)
                     <x-profile_elements.tab href="#">Servisní technik</x-profile_elements.tab>
                 @endif
                 <x-profile_elements.tab href="{{route('profile.edit')}}">Změny profilu</x-profile_elements.tab>

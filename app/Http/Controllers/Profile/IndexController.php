@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admins;
+use App\Models\Managers;
+use App\Models\Repairs;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -13,10 +16,10 @@ class IndexController extends Controller
     {
         $user = Auth::user();
         $user_id = Auth::id();
-        $is_admin = DB::select('select * from admins where user_id = '.$user_id.' and approved = 1');
-        $is_manager = DB::select('select * from managers where user_id = '.$user_id.' and approved = '.'1');
-        $is_tech = DB::select('select * from repairs where user_id = '.$user_id.' and approved = '.'1');
+        $is_admin = !empty(Admins::where('user_id',$user_id)->where('approved','1')->get()->toArray());
+        $is_manager = !empty(Managers::where('user_id',$user_id)->where('approved','1')->get()->toArray());
+        $is_repair = !empty(Repairs::where('user_id',$user_id)->where('approved','1')->get()->toArray());
 
-        return view('profile',compact(['user', 'is_admin', 'is_manager', 'is_tech']));
+        return view('profile',compact(['user', 'is_admin', 'is_manager', 'is_repair']));
     }
 }

@@ -22,7 +22,7 @@
 
 
         <lavel class="text-xl text-gray-600">Nazev:</lavel>
-        <div class=" break-after-left mb-4 pl-4 text-4xl rounded-lg ">
+        <div class=" break-after-left break-all mb-4 pl-4 text-4xl rounded-lg ">
             <p>{{$ticket->title}}</p>
         </div>
 
@@ -33,12 +33,12 @@
         </div>
 
         <lavel class="text-xl text-gray-600">Adresa:</lavel>
-        <div class="mb-4 pl-4 text-3xl rounded-lg ">
+        <div class="mb-4 pl-4 break-all text-3xl rounded-lg ">
             <div>{{$ticket->address}}</div>
         </div>
 
         <lavel class="text-xl text-gray-600">Popis:</lavel>
-        <div class="mb-4  break-after-left pl-4 text-2xl rounded-lg ">
+        <div class="mb-4  break-all break-after-left pl-4 text-2xl rounded-lg ">
             <div>{{$ticket->description}}</div>
         </div>
 
