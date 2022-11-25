@@ -39,10 +39,7 @@
 
 
         @php
-            $rout = route('citymanager.problems');
-            if(isset($old)){
-                $rout = route('user.tickets.index.old');
-            }
+            $rout = route('admin.allProblems');
         @endphp
 
         <x-paginator :tickets="$problems" rout='{{$rout}}' ></x-paginator>

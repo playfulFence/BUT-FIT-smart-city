@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Admin;
 use Illuminate\Support\Facades\Auth;
 
-class UserAcceptAddController extends BaseController
+class UserAllowController extends BaseController
 {
     public function __invoke()
     {

@@ -51,18 +51,6 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
-                    <x-profile_elements.action_card href="{{route('citymanager.techs')}}">
-                        <x-profile_elements.title_action_card>Zobrazit seznam techniků</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Seznam aktualních techických pracovníků<br><br></x-profile_elements.discription_action_card>
-                    </x-profile_elements.action_card>
-
-                    <x-profile_elements.action_card href="{{route('citymanager.new_techs')}}">
-                        <x-profile_elements.title_action_card>Zobrazit kandidáty na techického pracovníka</x-profile_elements.title_action_card>
-                        <x-profile_elements.discription_action_card>Seznam lidí, kteří se přihlásili <br>
-                                                                    na pozici technikého pracovníka
-                        </x-profile_elements.discription_action_card>
-                    </x-profile_elements.action_card>
-
                 </x-profile_elements.action_list>
 
             </x-profile_elements.action>
