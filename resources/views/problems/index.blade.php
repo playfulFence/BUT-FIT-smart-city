@@ -2,12 +2,16 @@
 @section('content')
     <x-ticket_elements>
         <div>
-            <a href="{{route('profile.cityman')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
-                Citymanager page
+            <a href="{{route('profile.manager')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+                Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('citymanager.problems')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('manager.problems.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální problémy
+            </a>
+            <label class="w-4 h-4 text-gray-500" >|</label>
+            <a href="{{route('manager.problems.index.old')}}" class="@if(isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+                Archiv problémů
             </a>
         </div>
 
@@ -47,10 +51,7 @@
 
 
         @php
-            $rout = route('citymanager.problems');
-            if(isset($old)){
-                $rout = route('user.tickets.index.old');
-            }
+            $rout = route('manager.problems.index');
         @endphp
 
         <x-paginator :tickets="$problems" rout='{{$rout}}' ></x-paginator>

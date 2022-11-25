@@ -42,7 +42,7 @@ Route::name('manager.problems.')
     ->middleware('auth')
     ->group(function () {
         Route::get('/manager/problems', 'IndexController')->name('index');
-        Route::get('/manager/problems/old', 'IndexOldController')->name("index.old"); //todo change to manager show id
+        Route::get('/manager/problems/old', 'IndexOldController')->name("index.old");
     });
 
 Route::name('problem.')
@@ -60,7 +60,7 @@ Route::name('manager.tickets.')
     ->middleware('auth')
     ->group(function () {
         Route::get('/manager/tickets', 'IndexController')->name("index");
-        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");
+        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show"); //todo
     });
 
 
@@ -88,7 +88,7 @@ Route::name('authentication.')
     ->middleware('auth.is')
     ->group(function () {
         Route::get('/login', 'IndexController')->name("index");
-        Route::post('/login', 'CheckController')->name("check")->middleware('user.approved');
+        Route::post('/login', 'CheckController')->name("check");
         Route::get('/logout', 'LogoutController')->name("exit")->withoutMiddleware('auth.is');
     });
 

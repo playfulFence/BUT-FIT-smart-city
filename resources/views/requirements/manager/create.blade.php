@@ -35,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center">
-                <a href="{{route('profile.cityman')}}" class="bg-yellow-500 text-center text-white  hover:bg-red-600 px-5 py-2.5 rounded-lg font-bold w-auto flex items-center justify-center m-3">
+                <a href="{{route('profile.manager')}}" class="bg-yellow-500 text-center text-white  hover:bg-red-600 px-5 py-2.5 rounded-lg font-bold w-auto flex items-center justify-center m-3">
                     Zrušit
                 </a>
                 <x-form_elements.buttom class="flex items-center justify-center m-3">

@@ -17,7 +17,7 @@ class ShowController extends Controller
 
         $status = TicketStatuses::find($ticket->ticket_status_id);
 
-        return view('tickets.show',compact('ticket','status','images','comments'));
+        return view('tickets.manager_show',compact('ticket','status','images','comments'));
 
     }
 }

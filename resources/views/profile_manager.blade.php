@@ -27,7 +27,7 @@
                         <x-profile_elements.discription_action_card>Nově podáné hlášení o problémech ve městě</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('technician.requirements.index')}}">
+                    <x-profile_elements.action_card href="{{route('manager.requirements.index')}}">
                         <x-profile_elements.title_action_card>Zobrazit seznam odeslaných technických požadavků</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Aktivní servisní požadavky</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
@@ -47,7 +47,7 @@
                         </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
-                    <x-profile_elements.action_card href="{{route('technician.requirements.index.old')}}">
+                    <x-profile_elements.action_card href="{{route('manager.requirements.index.old')}}">
                         <x-profile_elements.title_action_card>Zobrazit archivované technické požadavky</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Archív technických požadavků<br><br> </x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>

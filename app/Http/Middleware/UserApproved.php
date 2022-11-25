@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 
+use App\Models\Managers;
 use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,9 +20,8 @@ class UserApproved
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = User::where('email',$request->email)->get();
-
-        if($user[0]->approved == 0){
+        $user = empty(User::where('email',$request->email)->where('approved','1')->get()->toArray());
+        if($user){
             return redirect(route('authentication.index'))->withErrors([
                 'formError' => 'Váš účet ještě nebyl schválen, čekejte prosím',
             ]);
