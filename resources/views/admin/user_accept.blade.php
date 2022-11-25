@@ -48,9 +48,6 @@
 
         @php
             $rout = route('admin.userAccept');
-            if(isset($old)){
-                $rout = route('profile.index');
-            }
         @endphp
 
         <x-paginator :tickets="$newcomers" rout='{{$rout}}' ></x-paginator>
