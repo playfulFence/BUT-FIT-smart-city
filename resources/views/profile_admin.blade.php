@@ -40,6 +40,12 @@
 
                 <x-profile_elements.action_list class="mr-5">
 
+                    <x-profile_elements.action_card href="{{route('admin.users')}}">
+                        <x-profile_elements.title_action_card>Zobrazit všechny uživatele</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Seznam všech uživatelů. Můžete spravovat
+                                                            jejich přístup do systému</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+
                     <x-profile_elements.action_card href="{{route('admin.userAccept')}}">
                         <x-profile_elements.title_action_card>Zobrazit žádosti o registraci</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam uživatelů, kteří chtějí
@@ -50,6 +56,17 @@
 
 
                 <x-profile_elements.action_list class="mr-5">
+
+                    <x-profile_elements.action_card href="{{route('admin.allManagers')}}">
+                        <x-profile_elements.title_action_card>Zobrazit všechny správci města</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Seznam správců města</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
+
+                    <x-profile_elements.action_card href="{{route('admin.managerApprove')}}">
+                        <x-profile_elements.title_action_card>Zobrazit kandidáty na správce města</x-profile_elements.title_action_card>
+                        <x-profile_elements.discription_action_card>Seznam uživatelů, kteří chtějí
+                            začit pracovat jako správce města</x-profile_elements.discription_action_card>
+                    </x-profile_elements.action_card>
 
                 </x-profile_elements.action_list>
 

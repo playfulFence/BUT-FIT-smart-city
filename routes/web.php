@@ -16,14 +16,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::name('admin.')
+    ->namespace('App\Http\Controllers\Admin\Users')
+    ->middleware('auth')
+    ->middleware('admin')
+    ->group(function () {
+        Route::get('/admin/users', 'UsersController')->name("users");
+        Route::get('/admin/user_accept', 'UserAcceptController')->name("userAccept");
+        Route::get('/admin/user_allow/{user}', 'UserAllowController')->name("userAllow");
+        Route::get('/admin/user_deny/{user}', 'UserDenyController')->name("userDeny");
+    });
+
+Route::name('admin.')
+    ->namespace('App\Http\Controllers\Admin\Managers')
+    ->middleware('auth')
+    ->middleware('admin')
+    ->group(function () {
+        Route::get('/admin/managers', 'ManagersController')->name("allManagers");
+        Route::get('/admin/managers_approve', 'ManagerApproveController')->name("managerApprove");
+        Route::get('/admin/manager_hire/{manager}', 'ManagerHireController')->name("managerHire");
+        Route::get('/admin/manager_fire/{manager}', 'ManagerFireController')->name("managerFire");
+    });
+
 
 Route::name('admin.')
     ->namespace('App\Http\Controllers\Admin')
     ->middleware('auth')
+    ->middleware('admin')
     ->group(function () {
         Route::get('/admin/problems', 'ViewProbsController')->name("allProblems");
         Route::get('/admin/problems/archieve', 'ArchieveController')->name("archProbs");
-        Route::get('/admin/user_accept', 'UserAcceptController')->name("userAccept");
     });
 
 //manager

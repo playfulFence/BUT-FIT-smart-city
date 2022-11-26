@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Users;
 
-use App\Http\Controllers\Controller;
-use App\Services\Admin;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\BaseController;
 
 class UserAcceptController extends BaseController
 {

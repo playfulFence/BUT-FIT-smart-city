@@ -7,12 +7,12 @@
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
             <a href="#" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
-                Nově přichozí uživatele
+                Žádající o pozici správce města
             </a>
         </div>
 
         <div class="flex items-center justify-between">
-            <h1 class="text-8xl mb-8 mt-4 ">Žádající o účet</h1>
+            <h1 class="text-8xl mb-8 mt-4 ">Žádající o pozici správce města</h1>
         </div>
 
         <div class = "w-full h-16"> </div>
@@ -31,7 +31,7 @@
                     <div class="grid grid-cols-1 gap-2">
                         <div class="justify-end flex">
                             <button class="text-white bg-green-600 hover:bg-green-200 w-fit font-bold rounded-lg h-10 ml-44 mt-10 px-5 text-center" type="submit">
-                                <a href="{{route('admin.userAllow', $newcomer)}}">Povolit</a>
+                                <a href="{{route('admin.managerHire', $newcomer)}}">Povolit</a>
                             </button>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
 
 
         @php
-            $rout = route('admin.userAccept');
+            $rout = route('admin.managerApprove');
         @endphp
 
         <x-paginator :tickets="$newcomers" rout='{{$rout}}' ></x-paginator>
