@@ -14,10 +14,11 @@ class AddCommentController extends BaseController
     public function __invoke(Ticket $ticket,AddCommentRequest $request)
     {
 
-        //todo add check moderator
-//        if($ticket->user_id != Auth::id()){
-//            return redirect(route('profile.index'));
-//        }
+        if($ticket->manager_id != Auth::id()){
+            return redirect(route('manager.tickets.index'))->withErrors([
+                'formError' => 'Tento tiket nespravujete',
+            ]);
+        }
 
         $data = $request->validated();
 

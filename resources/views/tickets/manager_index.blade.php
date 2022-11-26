@@ -14,6 +14,12 @@
 
         <br>
         <br>
+        @error('formError')
+        <div class="text-xl text-white text-center bg-red-600 rounded-lg p-1 w-auto">Zpráva: {{$message}}</div>
+        @enderror
+        @error('notError')
+        <div class="text-xl text-white text-center bg-green-600 rounded-lg p-1 w-auto">Zpráva: {{$message}}</div>
+        @enderror
         <br>
 
         @foreach($tickets as $ticket)

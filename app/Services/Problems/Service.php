@@ -88,4 +88,26 @@ class Service
         return $message;
     }
 
+    public function addTicket($data, $ticket){
+
+        $message = Ticket::withoutEvents(function ( ) use($data,$ticket) {
+            if($ticket->manager_id == null){
+                $ticket->manager_id = Problems::find($data['problem'])->manager_id;
+                $ticket->problem_id = $data['problem'];
+                $ticket->ticket_status_id = 2;
+//                $problem = Problems::find($data['problem']);
+//                $problem->state = 2;
+
+                $ticket->save();
+//                $problem->save();
+                return null;
+            }else{
+                return "Tento tiket již byl připojen k jinému správci";
+            }
+        });
+
+        return $message;
+
+    }
+
 }

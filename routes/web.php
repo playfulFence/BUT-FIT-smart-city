@@ -79,6 +79,7 @@ Route::name('problem.')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
         Route::post('/problems/create', 'StoreController')->name("storeProb");
+        Route::post('/manager/ticket/{ticket}/problem', 'AddTicketController')->name("add.ticket");
         //Route::get('/problems/all', 'IndexOldController')->name("archProbs");
     });
 
@@ -90,7 +91,7 @@ Route::name('manager.tickets.')
     ->group(function () {
         Route::get('/manager/tickets', 'IndexController')->name("index");
         Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");//todo
-        Route::post('/manager/tickets/{ticket}', 'AddCommentController')->name("add.comment");
+        Route::post('/manager/ticket/{ticket}', 'AddCommentController')->name("add.comment");
     });
 
 

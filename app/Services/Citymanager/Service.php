@@ -31,7 +31,7 @@ class Service
 
     public function viewNewUnsolved()
     {
-        return Ticket::where('ticket_status_id','!=', 3)->orderBy('created_at', 'asc')->paginate(10);
+        return Ticket::where('ticket_status_id','=', 1)->orderBy('created_at', 'asc')->paginate(10);
     }
 
     public function viewAllTechs()
