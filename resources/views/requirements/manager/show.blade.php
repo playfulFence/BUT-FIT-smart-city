@@ -6,7 +6,7 @@
                 Učet
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('profile.cityman')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('profile.manager')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
                 Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
