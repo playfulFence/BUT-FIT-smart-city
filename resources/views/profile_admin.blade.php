@@ -65,7 +65,7 @@
                     <x-profile_elements.action_card href="{{route('admin.managerApprove')}}">
                         <x-profile_elements.title_action_card>Zobrazit kandidáty na správce města</x-profile_elements.title_action_card>
                         <x-profile_elements.discription_action_card>Seznam uživatelů, kteří chtějí
-                            začit pracovat jako správce města</x-profile_elements.discription_action_card>
+                                                                začit pracovat jako správce města</x-profile_elements.discription_action_card>
                     </x-profile_elements.action_card>
 
                 </x-profile_elements.action_list>

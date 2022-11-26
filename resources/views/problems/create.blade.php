@@ -21,7 +21,7 @@
             </div>
 
             <div class="flex items-center justify-center">
-                <x-form_elements.home href="{{route('profile.index')}}"></x-form_elements.home>
+                <x-form_elements.home href="{{route('manager.problems.index')}}"></x-form_elements.home>
                 <x-form_elements.buttom class="flex items-center justify-center m-3">
                     Vytvořit
                 </x-form_elements.buttom>

@@ -4,6 +4,7 @@ namespace App\Services\Citymanager;
 
 
 use App\Models\Images;
+use App\Models\Managers;
 use App\Models\Repairs;
 use App\Models\Ticket;
 use App\Models\TicketComments;
@@ -21,12 +22,13 @@ class Service
 
     public function getAllMyProblems()
     {
-        return Problems::where('manager_id', Auth::id())->paginate(10);
+        return Problems::where('manager_id', (Managers::where('user_id',Auth::id())->get()->toArray())[0]['id'])
+            ->where('state', 1)->paginate(10);
     }
 
     public function getSolved()
     {
-        return Problems::where('state', 2)->where('manager_id', Auth::id())->paginate(10);
+        return Problems::where('state', 2)->where('manager_id', (Managers::where('user_id',Auth::id())->get()->toArray())[0]['id'])->paginate(10);
     }
 
     public function viewNewUnsolved()
@@ -36,7 +38,7 @@ class Service
 
     public function viewAllTechs()
     {
-        return User::join('repairs', 'repairs.user_id','=', 'users.id')->select('users.name','users.lastname', 'users.email', 'users.phone')->where('repairs.approved',1)->paginate(10);
+        return User::join('repairs', 'repairs.user_id','=', 'users.id')->select('users.name','users.lastname', 'users.email', 'users.phone', 'repairs.id')->where('repairs.approved',1)->paginate(10);
     }
 
     public function addComment($data,$ticket): ?string

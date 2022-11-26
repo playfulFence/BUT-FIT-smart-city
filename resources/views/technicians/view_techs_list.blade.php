@@ -33,7 +33,7 @@
                     </div>
                     <div>
                         <div class="flex items-end justify-end mt-6">
-                            <x-ticket_elements.buttom href="#">Podívat se</x-ticket_elements.buttom>
+                            <x-ticket_elements.buttom href="{{route('technician.fire',$tech->id)}}">Propustit</x-ticket_elements.buttom>
                         </div>
                     </div>
                 </div>

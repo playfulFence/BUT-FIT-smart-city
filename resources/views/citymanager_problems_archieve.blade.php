@@ -6,7 +6,7 @@
                 Správce města
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
-            <a href="{{route('manager.problems.index')}}" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
+            <a href="{{route('manager.problems.index')}}" class="text-gray-500 hover:text-blue-500 font-bold w-auto  m-1">
                 Aktuální problémy
             </a>
             <label class="w-4 h-4 text-gray-500" >|</label>
@@ -32,12 +32,11 @@
                     </div>
                     <div>
                         <div class="flex items-end justify-end">
-                            {{--                            <x-ticket_elements.buttom href="{{route('user.tickets.show',$ticket->id)}}">Podívat se</x-ticket_elements.buttom>--}}
+                            <x-ticket_elements.buttom href="{{route('problem.unsolveProb',$problem->id)}}">Zahajit znovu</x-ticket_elements.buttom>
                         </div>
                     </div>
                 </div>
             </div>
-
         @endforeach
 
 

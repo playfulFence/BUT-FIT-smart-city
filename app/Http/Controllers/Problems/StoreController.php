@@ -13,12 +13,12 @@ class StoreController extends BaseController
         $message = $this->service->store($data);
 
         if(!$message){
-            return redirect(route('user.tickets.create'))->withErrors([
+            return redirect(route('problem.createProb'))->withErrors([
                 'formError' => $message,
             ]);
         }
 
-        return redirect((route('user.tickets.index')));
+        return redirect((route('manager.problems.index')));
 
     }
 }

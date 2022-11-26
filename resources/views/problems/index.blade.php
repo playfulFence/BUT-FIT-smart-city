@@ -41,7 +41,7 @@
                     </div>
                     <div>
                         <div class="flex items-end justify-end">
-{{--                            <x-ticket_elements.buttom href="{{route('user.tickets.show',$ticket->id)}}">Podívat se</x-ticket_elements.buttom>--}}
+                            <x-ticket_elements.buttom href="{{route('problem.showProb',$problem->id)}}">Podívat se</x-ticket_elements.buttom>
                         </div>
                     </div>
                 </div>

@@ -110,7 +110,7 @@ class RequirementController extends BaseController
             ]);
         }
 
-        return redirect((route('profile.cityman')));
+        return redirect((route('profile.manager')));
     }
 
     public function show($id)

@@ -4,6 +4,7 @@ namespace App\Services\Problems;
 
 
 use App\Models\Images;
+use App\Models\Managers;
 use App\Models\Repairs;
 use App\Models\Ticket;
 use App\Models\TicketComments;
@@ -27,8 +28,7 @@ class Service
 
     public function store($data)
     {
-
-        $data['manager_id'] = Auth::id();
+        $data['manager_id'] = (Managers::where('user_id',Auth::id())->get()->toArray())[0]['id'];
         $data['state'] = 1;
 
         $problem = Problems::create($data);

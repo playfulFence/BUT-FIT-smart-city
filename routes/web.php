@@ -59,6 +59,7 @@ Route::name('technician.')
             ->name('index.new');
         Route::get('/manager/technicians/new/{tech}','AddController')
             ->name('add');
+        Route::get('/manager/technicians/{tech_id}/fire', 'FireController')->name('fire');
     });
 
 Route::name('manager.problems.')
@@ -79,6 +80,9 @@ Route::name('problem.')
     ->group(function () {
         Route::get('/problems/create', 'CreateController')->name("createProb");
         Route::post('/problems/create', 'StoreController')->name("storeProb");
+        Route::get('/problems/{problem}', 'ShowController')->name("showProb");
+        Route::get('/problems/{problem}/solved', 'SolvedController')->name("solveProb");
+        Route::get('/problems/{problem}/unsolve', 'UnsolveController')->name("unsolveProb");
         Route::post('/manager/ticket/{ticket}/problem', 'AddTicketController')->name("add.ticket");
         //Route::get('/problems/all', 'IndexOldController')->name("archProbs");
     });
@@ -90,7 +94,7 @@ Route::name('manager.tickets.')
     ->middleware('manager')
     ->group(function () {
         Route::get('/manager/tickets', 'IndexController')->name("index");
-        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");//todo
+        Route::get('/manager/ticket/{ticket}', 'ShowController')->name("show");
         Route::post('/manager/ticket/{ticket}', 'AddCommentController')->name("add.comment");
     });
 
