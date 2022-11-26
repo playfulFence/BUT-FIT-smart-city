@@ -97,7 +97,7 @@ return new class extends Migration
 
         DB::table('users')->insert(array('name' => 'Iveta', 'lastname' => 'Hanákova',
             'email' => 'ivhanak3210@seznam.cz', 'password' => Hash::make('123'),
-            'birthday' => '1988-04-12', 'phone' => '775932438',
+            'birthday' => '1958-04-12', 'phone' => '775932438',
             'specialization' => false, 'approved' => true,));
 
         DB::table('users')->insert(array('name' => 'Milan', 'lastname' => 'Slanina',
