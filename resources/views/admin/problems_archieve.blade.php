@@ -3,7 +3,7 @@
     <x-ticket_elements>
         <div>
             <a href="{{route('profile.admin')}}" class="text-gray-500  hover:text-blue-500 font-bold w-auto  m-1">
-                Admin page
+                Administrátor
             </a>
             <label class="w-4 h-4 text-gray-500" >/</label>
             <a href="#" class="@if(!isset($old))text-black @else text-gray-500  @endif  hover:text-blue-500 font-bold w-auto  m-1">
