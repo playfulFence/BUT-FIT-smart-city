@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -26,8 +28,83 @@ return new class extends Migration
             $table->boolean("specialization")->default(false);
             $table->boolean("approved")->default(false);
             $table->timestamps();
-
         });
+
+        DB::table('users')->insert(array('name' => 'Kirill', 'lastname' => 'Mikhailov',
+            'email' => 'xmikha00@admin.cz', 'password' => Hash::make('123456'),
+            'birthday' => '2001-02-15', 'phone' => '773249612',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Vladislav', 'lastname' => 'Mikheda',
+            'email' => 'xmikhe00@admin.cz', 'password' => Hash::make('123456'),
+            'birthday' => '2001-03-30', 'phone' => '773389412',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Vladislav', 'lastname' => 'Khrisanov',
+            'email' => 'xkhris00@admin.cz', 'password' => Hash::make('123456'),
+            'birthday' => '2001-12-05', 'phone' => '775341423',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Jan', 'lastname' => 'Novák',
+            'email' => 'jnovak82@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1983-11-13', 'phone' => '775365445',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Marek', 'lastname' => 'Hrbáček',
+            'email' => 'hrbaty@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1999-05-21', 'phone' => '775582492',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Lucie', 'lastname' => 'Máchova',
+            'email' => 'luckylucka@google.com', 'password' => Hash::make('123'),
+            'birthday' => '2002-03-14', 'phone' => '779242823',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Sylvie', 'lastname' => 'Altrichterova',
+            'email' => 'altright@google.com', 'password' => Hash::make('123'),
+            'birthday' => '2001-06-12', 'phone' => '774566490',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Vesemír', 'lastname' => 'Zaklináč',
+            'email' => 'whitchersdaddy@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1935-09-01', 'phone' => '772228932',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Katarína', 'lastname' => 'Láska',
+            'email' => 'katherine9392@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1993-07-04', 'phone' => '775423532',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Diana', 'lastname' => 'Královna',
+            'email' => 'imprincessbeatch@gmail.com', 'password' => Hash::make('123'),
+            'birthday' => '1992-05-21', 'phone' => '455431349',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Samuel', 'lastname' => 'Vaňo',
+            'email' => 'whoissamko@seznam.cz', 'password' => Hash::make('123'),     // 11
+            'birthday' => '2003-10-09', 'phone' => '772792492',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Filip', 'lastname' => 'Růžička',
+            'email' => 'ruzovavoda@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1994-02-10', 'phone' => '772981542',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Jakub', 'lastname' => 'Kulhánek',
+            'email' => 'stfuzubar@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1988-08-19', 'phone' => '738983912',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Iveta', 'lastname' => 'Hanákova',
+            'email' => 'ivhanak3210@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1988-04-12', 'phone' => '775932438',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Milan', 'lastname' => 'Slanina',
+            'email' => 'slaninamilan@seznam.cz', 'password' => Hash::make('123'),
+            'birthday' => '1972-05-21', 'phone' => '795391432',
+            'specialization' => true, 'approved' => true,));
+
     }
 
     /**

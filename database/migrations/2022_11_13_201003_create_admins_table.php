@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use \Illuminate\Support\Facades\DB;
+
 return new class extends Migration
 {
     /**
@@ -22,6 +24,11 @@ return new class extends Migration
             $table->boolean("approved")->default(false);
             $table->timestamps();
         });
+
+        DB::table('admins')->insert(array('user_id' => '1', 'approved' => true,));
+        DB::table('admins')->insert(array('user_id' => '2', 'approved' => true,));
+        DB::table('admins')->insert(array('user_id' => '3', 'approved' => true,));
+
     }
 
     /**

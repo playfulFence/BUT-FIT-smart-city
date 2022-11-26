@@ -22,6 +22,12 @@ return new class extends Migration
             $table->boolean("approved")->default(false);
             $table->timestamps();
         });
+
+        DB::table('repairs')->insert(array('user_id' => '5', 'approved' => true,));
+        DB::table('repairs')->insert(array('user_id' => '11', 'approved' => true,));
+        DB::table('repairs')->insert(array('user_id' => '12', 'approved' => true,));
+        DB::table('repairs')->insert(array('user_id' => '15', 'approved' => true,));
+
     }
 
     /**
