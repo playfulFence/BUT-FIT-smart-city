@@ -58,6 +58,10 @@ class Service
 
     }
 
+    public function getRelatedTickets($problem_id)
+    {
+        return Ticket::where('problem_id', $problem_id)->paginate(10);
+    }
 
     public function addImage($data,$ticket){
 

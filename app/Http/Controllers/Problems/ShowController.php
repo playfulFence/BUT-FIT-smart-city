@@ -21,7 +21,9 @@ class ShowController extends Controller
             $manager = Managers::where('user_id', Auth::id())->get();
             $problems = $manager[0]->problems;
 
-            return view('problems.show', compact('problem', 'status', ));
+            $tickets = Ticket::where('problem_id', $problem->id)->get();
+
+            return view('problems.show', compact('problem', 'status', 'tickets'));
         }else{
             return redirect(route('manager.tickets.index'))->withErrors([
                 'formError' => 'Tento problem nespravujete',
