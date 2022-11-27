@@ -104,6 +104,26 @@ return new class extends Migration
             'email' => 'slaninamilan@seznam.cz', 'password' => Hash::make('123'),
             'birthday' => '1972-05-21', 'phone' => '795391432',
             'specialization' => true, 'approved' => true,));
+//16
+        DB::table('users')->insert(array('name' => 'Jan', 'lastname' => 'Obyvatel',
+            'email' => 'user@user.cz', 'password' => Hash::make('123'),
+            'birthday' => '1973-05-21', 'phone' => '796782432',
+            'specialization' => false, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Jiří', 'lastname' => 'Administrátor',
+            'email' => 'admin@admin.cz', 'password' => Hash::make('123'),
+            'birthday' => '1971-05-21', 'phone' => '795391781',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Marie', 'lastname' => 'Správceměstová',
+            'email' => 'manager@manager.cz', 'password' => Hash::make('123'),
+            'birthday' => '1970-05-21', 'phone' => '798931432',
+            'specialization' => true, 'approved' => true,));
+
+        DB::table('users')->insert(array('name' => 'Michal', 'lastname' => 'Servisnítechnik',
+            'email' => 'tech@tech.cz', 'password' => Hash::make('123'),
+            'birthday' => '1976-05-21', 'phone' => '798753211432',
+            'specialization' => true, 'approved' => true,));
 
     }
 
