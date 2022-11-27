@@ -50,7 +50,7 @@
                     Vice
                 </a>
         </div>
-
+        @if($ticket->manager_id == null)
         <x-form_elements.form action="{{route('problem.add.ticket',$ticket->id)}}">
             <label for="problem" class="m-1"> Problem</label>
             <select name='problem' class=" @error('problem') border-2 border-red-500 @enderror w-full p-2.5 rounded-lg shadow-inner focus:outline-blue-600 bg-gray-100 text-black">
@@ -65,7 +65,7 @@
                 <x-form_elements.buttom class="flex justify-end h-fit ml-2 mt-6"  >
                     Přidat
                 </x-form_elements.buttom>
-
+            @endif
 
         </x-form_elements.form>
 
@@ -82,7 +82,7 @@
         <div class="flex justify-end">
             <x-paginator :tickets="$comments" rout="{{route('manager.tickets.show',$ticket->id)}}"></x-paginator>
         </div>
-        @if($ticket->ticket_status_id != 3 && $ticket->manager_id == \Illuminate\Support\Facades\Auth::id())
+        @if($ticket->ticket_status_id != 3 && $ticket->manager_id == $manager_id)
             <x-form_elements.form action="{{route('manager.tickets.add.comment',$ticket->id)}}">
                 <div class="mx-5">
                 <x-form_elements.textarea name="content">Pridat komentar</x-form_elements.textarea>
