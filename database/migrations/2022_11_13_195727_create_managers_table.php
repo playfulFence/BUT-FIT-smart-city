@@ -27,7 +27,7 @@ return new class extends Migration
         DB::table('managers')->insert(array('user_id' => '1', 'approved' => true,));
         DB::table('managers')->insert(array('user_id' => '7', 'approved' => true,));
         DB::table('managers')->insert(array('user_id' => '8', 'approved' => true,));
-        DB::table('managers')->insert(array('user_id' => '18', 'approved' => true,));
+//        DB::table('managers')->insert(array('user_id' => '18', 'approved' => true,));
     }
 
     /**

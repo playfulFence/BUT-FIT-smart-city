@@ -47,20 +47,20 @@ return new class extends Migration
                                     'description' => 'Střepy všude.',
                                     'address' => 'Brandlova, zastávka Česká',
                                     'ticket_status_id' => 1,
-                                    'user_id' => 5));
+                                    'user_id' => 3));
 
         DB::table('tickets')->insert(array('title' => 'Promačklý plot',
                                     'description' => 'Promáčklý plot vedle našeho domu.',
                                     'address' => 'Olomoucká 118ž',
                                     'ticket_status_id' => 1,
-                                    'user_id' => 2));
+                                    'user_id' => 3));
 
 
         DB::table('tickets')->insert(array('title' => 'Odpadky se vypadli',
                                     'description' => 'Z popelářského vozu se vypadli odpadky a stále to nikdo nevyčistil.',
                                     'address' => 'Vlašská 23',
                                     'ticket_status_id' => 1,
-                                    'user_id' => 4));
+                                    'user_id' => 3));
 
         DB::table('tickets')->insert(array('title' => 'Vítr srazil strom',
                                     'description' => 'Po silném větru strom spadl na auta.',

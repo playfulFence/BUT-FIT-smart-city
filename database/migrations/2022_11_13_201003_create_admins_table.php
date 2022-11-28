@@ -25,10 +25,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('admins')->insert(array('user_id' => '1', 'approved' => true,));
         DB::table('admins')->insert(array('user_id' => '2', 'approved' => true,));
-        DB::table('admins')->insert(array('user_id' => '3', 'approved' => true,));
-        DB::table('admins')->insert(array('user_id' => '17', 'approved' => true,));
+//        DB::table('admins')->insert(array('user_id' => '17', 'approved' => true,));
 
     }
 
